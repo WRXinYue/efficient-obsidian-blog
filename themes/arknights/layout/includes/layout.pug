@@ -1,0 +1,59 @@
+-
+  let pageTitle = page.title || config.subtitle || ''
+  if (is_post()) pageTitle = page.title
+  if (is_archive()) pageTitle = __('menu.archive.plural')
+  if (is_tag()) pageTitle = __('menu.tag.plural') + ': ' + page.tag
+  if (is_category()) pageTitle = __('menu.category.plural') + ': ' + page.category
+  if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
+  if (is_year()) pageTitle += ': ' + page.year
+  if (pageTitle) pageTitle += ' | '
+  pageTitle += config.title
+  const asideLogo = theme.aside.logo
+  const pjax = theme.pjax ? theme.pjax.enable : false
+  let onload = "code.findCode();"
+  let searchConfig = null
+  if (theme.search !== undefined && theme.search.enable === true) searchConfig = theme.search;
+  if (theme.mermaid.enable === true && theme.mermaid.version !== undefined) {
+    onload += "mermaid.init(undefined, ('.mermaid'));";
+  }
+  const configs = JSON.stringify({
+    root: config.root,
+    search: {
+      preload: searchConfig.preload,
+      activeHolder: __('search.activeHolder'),
+      blurHolder: __('search.blurHolder'),
+      noResult: __('search.noResult')
+    },
+    code: {
+      codeInfo: __('code.codeInfo'),
+      copy: __('code.copy'),
+      copyFinish: __('code.copyFinish'),
+      expand: __('code.expand')
+    }
+  })
+
+doctype html
+html(lang=config.language)
+  head
+    include ./meta-data.pug
+  body(style={'background-image': `url(${theme.background_image})`})
+    if pjax
+      .loading(style='opacity: 0')
+        .loadingBar.left
+        .loadingBar.right
+    main
+      include ./header.pug
+      article
+        if body
+          div!= body
+        else
+          block content
+        if page.published !== undefined
+          #bottom-btn
+            if tocLength !== null
+              a#to-index(href="#toc-div" title=__('post.index')) ≡
+            a#to-top(onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;") ∧
+      include ./aside.pug
+    if theme.canvas_dust
+      canvas#canvas-dust
+    include ./js-data.pug

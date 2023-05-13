@@ -1,0 +1,188 @@
+{
+  "main": {
+    "id": "2b41cbe8d297d2ae",
+    "type": "split",
+    "children": [
+      {
+        "id": "1eb2215f995817e3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d67a095df072378",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Scripts/校园分享会.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f6818c8ead5f08a0",
+    "type": "split",
+    "children": [
+      {
+        "id": "c337fdb4d036621e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c73c0d479cd6c833",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9e779629715861e5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "okhttp",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3eed47f18e10f102",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "f45de42c45bb406f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "b0f53977483e2010",
+    "type": "split",
+    "children": [
+      {
+        "id": "12ade412c893f51f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c9195ce4e50806de",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Scripts/校园分享会.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e8920b7f65df77e7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Scripts/校园分享会.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "561b20fbdeec5a5e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "b2486251681c3fd1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Scripts/校园分享会.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "4d67a095df072378",
+  "lastOpenFiles": [
+    "server/快速翻墙命令.md",
+    "Scripts/校园分享会.md",
+    "server/防火墙.md",
+    "server/Linux备忘录.md",
+    "server/常用软件安装.md",
+    "server/面板.md",
+    "server/DNS记录类型.md",
+    "其它/代理设置.md",
+    "博客/Alist美化.md",
+    "server/rustdesk中继服务器的docker镜像.md",
+    "DBMS/向量数据库.md",
+    "其它/关于 GIt、GitHub和GitLab.md",
+    "DBMS/MySql/Mysql OF CodeWithMosh.md",
+    "Template/Template MOC.md",
+    "Template/Templater Time.md",
+    "Template/Templater Plugin.md",
+    "DBMS/数据库基本概念.md",
+    "WebFrontend/JavaScript/Web学习日志(office).md",
+    "WebFrontend/JavaScript/Promise笔记.md",
+    "WebFrontend/JavaScript/js(学习日志).md",
+    "WebFrontend/UI/BootStrap.md",
+    "未命名.md",
+    "WebFrontend/JavaScript/js解构赋值.md",
+    "游戏开发/像素教程.md",
+    "WebFrontend/UI/CSS3笔记.md",
+    "WebBackend/Java/OkHttp3.md"
+  ]
+}

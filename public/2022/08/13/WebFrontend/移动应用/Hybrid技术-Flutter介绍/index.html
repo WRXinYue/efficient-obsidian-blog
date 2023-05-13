@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hybrid技术-Flutter介绍 | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>Hybrid技术-Flutter介绍</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-08-13T14:52:01.000Z" id="date"> 2022-08-13</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2022-10-26T16:13:12.999Z" id="updated"> 2022-10-27</time></div></span></div></div><hr><div id="post-content"><h1 id="Hybrid技术"><a href="#Hybrid技术" class="headerlink" title="Hybrid技术"></a>Hybrid技术</h1><blockquote>
+<p>hybrid译为中文是“混合”的意思，是一种原生APP和<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=HTML5&spm=1001.2101.3001.7020">HTML5</a>混合开发的技术。</p>
+</blockquote>
+<p> 在前端移动端开发中，到现在阶段主要有三大潮流</p>
+<ol>
+<li>原生APP开发(以Android和iOS为主导)</li>
+<li>HTML5 WebAPP开发</li>
+<li>原生APP和HTML5混合开发，也就是hybrid技术</li>
+</ol>
+<p>Hybrid主要分为三类：</p>
+<blockquote>
+<p>H5 + 原生：Cordova，lonic，微信小程序</p>
+<p>JavaScript开发+原生渲染：React Native、Wex、快应用</p>
+<p>自绘UI + 原生：QT for mobile，Flutter</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220813205022119.png" alt="image-20220813205022119"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220813205116298.png" alt="image-20220813205116298"></p>
+<h2 id="什么是原生开发"><a href="#什么是原生开发" class="headerlink" title="什么是原生开发?"></a>什么是原生开发?</h2><p>原生应用程序是指某一个移动平台（比如iOS或者Android）所特有的应用，使用相应平台支持的开发工具和语言，并直接调用系统提供的SDK API。比如Android原生应用是指使用Java或者Kotlin语言直接调用Android SDK开发的应用程序；而iOS原生应用就是指通过Objective-C或Swift语言直接调用iOS SDK开发的应用程序</p>
+<h1 id="Flutter介绍"><a href="#Flutter介绍" class="headerlink" title="Flutter介绍"></a>Flutter介绍</h1><p>Flutter是Google推出并开源的移动应用开发UI框架，主打跨平台、高保真、高性能。开发者可以通过Dart语言开发App，一套代码同时运行在多个平台。Flutter提供了丰富的组件、接口，开发者可以很快地为Flutter添加Native扩展</p>
+<h1 id="JIT和AOT"><a href="#JIT和AOT" class="headerlink" title="JIT和AOT"></a>JIT和AOT</h1><p>JIT既Just-in-time，动态（即时）编译，边运行边编译。</p>
+<p>优点：</p>
+<blockquote>
+<ul>
+<li>可以根据当前硬件情况实时编译生成最优机器指令</li>
+<li>可以根据当前程序的运行情况生成最优的机器指令序列</li>
+<li>当程序需要支持支持动态链接时，只能使用JIT</li>
+<li>可以根据进程中内存的实际情况调整代码，使内存能够更充分的利用</li>
+</ul>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<ul>
+<li>编译需要占用运行时资源，会导致进程卡顿</li>
+<li>由于编译时间需要占用运行时间，对于某些代码的编译优化不能完全支持，需要在程序流畅和编译时间之间做权衡</li>
+<li>在编译准备和识别频繁使用的方法需要占用时间，使得初始编译不能达到最高性能</li>
+</ul>
+</blockquote>
+<p>AOT即Ahead Of Time，指运行前编译。</p>
+<p>优点：</p>
+<blockquote>
+<ul>
+<li>在程序运行前编译，可以避免在运行时的编译性能消耗和内存消耗</li>
+<li>可以在程序运行初期就达到最高性能</li>
+<li>可以显著的加快程序的启动</li>
+</ul>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<ul>
+<li>在程序运行前编译会使程序安装的时间增加</li>
+<li>牺牲Java的一致性</li>
+<li>将提前编译的内容保存会占用更多的外</li>
+</ul>
+</blockquote>
+<h1 id="关于Dart"><a href="#关于Dart" class="headerlink" title="关于Dart"></a>关于Dart</h1><p>Dart是由谷歌开发的计算机编程语言，可以用于web、服务器、移动程序和物联网领域的开发。</p>
+<p>Dart诞生于2011年，号称要取代JavaScript。但是过去几年中一直不温不火。直到Flutter的出现被人们重新重视起来，要学Flutter必须的会Dart</p>
+<h2 id="开发效率高"><a href="#开发效率高" class="headerlink" title="开发效率高"></a>开发效率高</h2><p>Dart运行时和编译器支持Flutter的两个关键特性的组合：</p>
+<ul>
+<li>基于JIT的快速开发周期；</li>
+<li>基于AOT的发布包</li>
+</ul>
+<h2 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h2><p>Flutter提供流畅、高保真的UI体验。</p>
+<h2 id="快速内存分配"><a href="#快速内存分配" class="headerlink" title="快速内存分配"></a>快速内存分配</h2><p>Flutter框架使用函数式流，这使得它在很大程度上依赖于低层的内存分配器。</p>
+<h2 id="类型安全和空安全"><a href="#类型安全和空安全" class="headerlink" title="类型安全和空安全"></a>类型安全和空安全</h2><p>由于Dart是类型安全的语言，且2.12版本后也支持了空安全特性，所以Dart支持静态类型检测，可以在编译前发现一些类型的错误，并排除潜在问题。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/08/15/WebFrontend/JavaScript/BOM/">← Next BOM</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/08/09/WebFrontend/JavaScript/js%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">js基础语法 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hybrid%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">Hybrid技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%9F%E7%94%9F%E5%BC%80%E5%8F%91"><span class="toc-number">1.1.</span> <span class="toc-text">什么是原生开发?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flutter%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">Flutter介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JIT%E5%92%8CAOT"><span class="toc-number">3.</span> <span class="toc-text">JIT和AOT</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EDart"><span class="toc-number">4.</span> <span class="toc-text">关于Dart</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87%E9%AB%98"><span class="toc-number">4.1.</span> <span class="toc-text">开发效率高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD"><span class="toc-number">4.2.</span> <span class="toc-text">高性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="toc-number">4.3.</span> <span class="toc-text">快速内存分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E5%92%8C%E7%A9%BA%E5%AE%89%E5%85%A8"><span class="toc-number">4.4.</span> <span class="toc-text">类型安全和空安全</span></a></li></ol></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

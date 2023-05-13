@@ -1,0 +1,94 @@
+extends includes/layout.pug
+
+block content
+  -
+    const prev = page.prev
+    const next = page.next
+    const dateConf = theme.post.date
+    const updatedConf = theme.post.updated
+    const excerptConf = theme.post.excerpt
+    const reward = theme.post.reward
+    const encrypted = page.encrypt || page.password
+    const tocContent = encrypted === undefined ? toc(page.content, theme.toc) : toc(page.origin, theme.toc)
+    const countWord = theme.post.count === true && wordcount !== undefined ? wordcount(page.content) : null
+    const countTime = theme.post.time === true && min2read !== undefined ? min2read(page.content) : null
+  #post-bg
+    #post-title
+      h1= page.title
+      if (dateConf || updatedConf) && page.published
+        #post-info
+          - var first = true
+          if dateConf
+            span #{__('post.posted')}
+              div.control
+                time(datetime=page.date.toJSON())#date
+                  = ' ' + date(page.date, date_format)
+            - first = false
+          if updatedConf
+            if !first
+              br
+            span #{__('post.edited')}
+              div.control
+                time(datetime=page.updated.toJSON())#updated
+                  = ' ' + date(page.updated, date_format)
+            - first = false
+          if countWord
+            if !first
+              br
+            span #{__('post.countTotal')}
+              div.control #{countWord}
+            - first = false
+          if countTime
+            if !first
+              br
+            span #{__('post.timeTotal')}
+              div.control #{countTime} #{__('post.timeUnit')}
+    hr
+    #post-content
+      if excerptConf || encrypted
+        != page.content
+      else
+        != page.more
+      #paginator!= paginator()
+    #post-footer
+      if prev || next
+        - let fix = ""
+        if prev === undefined
+          - fix = "justify-content: flex-end"
+        if next === undefined
+          - fix = "justify-content: flex-start"
+        #pages(style=fix)
+          if prev !== undefined
+            .footer-link(style="width: 50%;text-align:right;border-right:1px #fe2 solid")
+              a(href=url_for(prev.path))
+                |← Next
+                = ' ' + prev.title
+          if next !== undefined
+            .footer-link(style="width: 50%;right:1px;border-left:1px #fe2 solid")
+              a(href=url_for(next.path))
+                = next.title + ' '
+                |Prev →
+    if reward
+      details#reward
+        summary #{__('post.reward')}
+        each imgSrc, pay in reward
+          div
+            span #{pay}
+            br
+            img(src=config.root + imgSrc)
+    if page.comments
+      if theme.valine.enable === true
+        #Valine
+      if theme.gitalk.enable === true
+        #comments
+      if theme.waline.enable === true
+        #waline(style="margin:0 30px;")
+
+block aside-block
+  - 
+    const encrypted = page.encrypt || page.password
+    const tocContent = encrypted === undefined ? toc(page.content, theme.toc) : toc(page.origin, theme.toc)
+  if (tocContent.length > 0)
+    #toc-div(style=encrypted !== undefined?"display:none":"")
+      h1 #{__('post.index')}
+      |!{tocContent}

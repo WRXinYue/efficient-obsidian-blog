@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DOM | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>DOM</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-08-21T10:31:25.000Z" id="date"> 2022-08-21</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-04-18T03:51:31.193Z" id="updated"> 2023-04-18</time></div></span></div></div><hr><div id="post-content"><h1 id="初识DOM"><a href="#初识DOM" class="headerlink" title="初识DOM"></a>初识DOM</h1><blockquote>
+<p>DOM（Document Object Model）文档对象模型，是W3C组织推荐的处理可扩展置标语言的标准编程接口。</p>
+</blockquote>
+<h2 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h2><p>DOM为我们提供了一个全局内置对象<code>document</code>，要操作HTML标签，我们可以调用<code>document</code>对象中的各种方法来获取页面中的标签（在js中我们可以称之为 <strong>元素</strong> 或者 <strong>节点</strong>）：</p>
+<ul>
+<li><p>通过ID获取</p>
+<p>eg：<code>document.getElementById(&quot;ID&quot;)</code></p>
+</li>
+<li><p>通过name获取</p>
+<p>eg:  <code>document.getElementsByName(&quot;Name&quot;)</code></p>
+</li>
+<li><p>通过选择器获取</p>
+<p>eg：<code>document.querySelector(&quot;#main .nav&quot;)</code></p>
+<p>eg：<code>document.querySelectorAll(#banner li)</code></p>
+</li>
+<li><p>通过class名获取</p>
+<p>eg：<code>document.getElementsByClassName(&quot;className&quot;)</code></p>
+</li>
+<li><p>通过标签名获取</p>
+<p>eg：<code>document.getElementsByTagName(&quot;tagName&quot;)</code></p>
+</li>
+<li><p>特殊标签的获取</p>
+<p>获取html标签 <code>document.documentElement</code></p>
+<p>获取head标签 <code>document.hea</code></p>
+<p>获取body标签 <code>document.body</code></p>
+<p>获取title标签 <code>document.title</code></p>
+</li>
+</ul>
+<p>一般情况下，推荐使用 <strong>ID获取</strong> 或者 <strong>选择器获取</strong> ，比较方便。</p>
+<h2 id="操作HTML内容"><a href="#操作HTML内容" class="headerlink" title="操作HTML内容"></a>操作HTML内容</h2><p><code>节点.innerHTML</code> 获取&#x2F;修改 元素的HTML内容，</p>
+<p><code>节点.innerText</code> 获取&#x2F;修改 元素的文本内容（老版本FF不支持这个属性，使用 <code>.textContent</code> 代替）。</p>
+<h2 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h2><ul>
+<li><p>事件种类</p>
+<p>鼠标事件： <code>onclick 左键单击</code> <code>ondblclick 左键双击</code> <code>onmouseover onmouseenter 鼠标移入</code> <code>onmouseout onmouseleave鼠标移出</code> <code>onmousedown 鼠标按下</code> <code>onmousmove 鼠标移动</code> <code>onmouseup 鼠标抬起</code> <code>oncontextmenu 右键单击</code></p>
+<p>键盘事件：<code>onkeydown onkeypress 键按下</code> <code>onkeyup 键抬起</code></p>
+<p>系统事件： <code>onload 加载完成后</code> <code>onerror 加载出错后</code> <code>onresize 窗口调整大小时</code> <code>onscroll 滚动时</code></p>
+<p>表单事件： <code>onfocus 获取焦点后</code> <code>onblur 失去焦点后</code> <code>onchange 改变内容后</code> <code>onreset 重置后</code> <code>onselect 选择后</code> <code>onsubmit 提交后</code></p>
+</li>
+<li><p>监听事件写法</p>
+<p><code>节点.事件 = 函数</code>。</p>
+<p>eg：<code>document.getElementById(&quot;main&quot;).onclick = function()&#123;alert(1)&#125;;</code></p>
+<p>这里的函数称之为 <strong>事件函数</strong>，事件函数不会自执行，而是当事件触发时执行。</p>
+</li>
+<li><p>事件函数this指向</p>
+<p>在事件函数中，关键词 <code>this</code> 就表示触发事件的这个节点对象。</p>
+</li>
+</ul>
+<h2 id="操作节点的标签属性"><a href="#操作节点的标签属性" class="headerlink" title="操作节点的标签属性"></a>操作节点的标签属性</h2><ul>
+<li><p>合法标签属性</p>
+<p>直接使用 <code>节点.属性</code> 的方式。eg：<code>console.log(节点.id);</code> <code>节点.title = &quot;新的title&quot;</code>。</p>
+<p>class名字不能 <code>.class</code> ，而是使用 <code>.className</code> 代替。</p>
+</li>
+<li><p>自定义的标签属性</p>
+<p>不能直接使用 <code>.</code> 操作。</p>
+<p>设置<code>setAttribute</code> 获取<code>getAttribute</code> 移除<code>removeAttribute</code> 。</p>
+</li>
+</ul>
+<h2 id="操作样式"><a href="#操作样式" class="headerlink" title="操作样式"></a>操作样式</h2><ul>
+<li><p>修改样式</p>
+<p>元素样式由<code>css</code>控制，JavaScript想要改变元素的样式，那么就相当于要改变css。</p>
+<p>元素css样式的书写位置有三种：<strong>外部样式表</strong>、<strong>内部样式表</strong>、<strong>行内样式</strong>。js来操作样式时，本质上就相当于要操作这三种位置的css。</p>
+<ul>
+<li><strong>外部样式表</strong> ：前端的 js 不能修改一个外部的文件，所以无法通过直接修改外部样式来改变元素。</li>
+<li><strong>内部样式表</strong>：内部样式放置到<code>style</code>标签中，而style又在当前页面中，所以能够被js控制。但是操作来比较麻烦，所以不推荐。</li>
+<li><strong>行内样式</strong>：直接写在标签中，并且优先级最高。js操作样式的<strong>最常用</strong>方式。</li>
+</ul>
+<p><code>节点.style.属性</code> 来控制单个的行内样式。</p>
+<p><code>节点.style.cssText</code> 来控制节点的所有行内样式。</p>
+<p>当单个标签操作的样式比较多时，使用 <strong>改变class来改变样式</strong> 的形式会方便很多。</p>
+</li>
+<li><p>获取样式</p>
+<p><code>.style</code> 只能获取行内样式，要获取元素的最终显示样式使用 <code>getComputedStyle(节点)</code>。</p>
+</li>
+</ul>
+<h2 id="类名的操作"><a href="#类名的操作" class="headerlink" title="类名的操作"></a>类名的操作</h2><p>使用 <code>.className</code> 可以来操作标签的类名，但是需要新加一个类名，或者去掉某个类名时，使用<code>.className</code>较为麻烦。所以推荐使用新API<code>.classList</code> 来操作类名。</p>
+<p>添加：<code>节点.classList.add(&quot;类名&quot;)</code></p>
+<p>移除：<code>节点.classList.remove(&quot;类名&quot;)</code></p>
+<p>切换（有则删，无则加）：<code>节点.classList.toggle(&quot;类名&quot;)</code></p>
+<p>是否有某个类名（得到布尔值）：<code>节点.classList.contain(&quot;类名&quot;)</code></p>
+<h1 id="DOM节点"><a href="#DOM节点" class="headerlink" title="DOM节点"></a>DOM节点</h1><ul>
+<li>DOM 的节点我们一般分为常用的三大类 <strong>元素节点&#x2F;文本节点&#x2F;属性节点</strong></li>
+<li>什么是分类，比如我们在获取元素的时候，通过各种方法获取到的我们叫做元素节点（标签节点）</li>
+<li>比如我们标签里面写的文字，那么就是文本节点</li>
+<li>写在每一个标签上的属性，就是属性节点</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220815045709938.png" alt="image-20220815045709938"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220815045922963.png" alt="image-20220815045922963"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220815050153499.png" alt="image-20220815050153499"></p>
+<h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><ul>
+<li><p>childNodes</p>
+<p>获取一个元素的所有子节点……</p>
+</li>
+<li><p>节点类型</p>
+<p>DOM包含了多种节点，我们通常获取的标签，只是节点中的一种：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>节点名称</th>
+<th>nodeType</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>元素节点</em></td>
+<td><em>1</em></td>
+</tr>
+<tr>
+<td><em>属性节点</em></td>
+<td><em>2</em></td>
+</tr>
+<tr>
+<td><em>文本节点</em></td>
+<td><em>3</em></td>
+</tr>
+<tr>
+<td>CDATA节点</td>
+<td>4</td>
+</tr>
+<tr>
+<td>实体引用名称节点</td>
+<td>5</td>
+</tr>
+<tr>
+<td>实体名称节点</td>
+<td>6</td>
+</tr>
+<tr>
+<td>处理指令节点</td>
+<td>7</td>
+</tr>
+<tr>
+<td>注释节点</td>
+<td>8</td>
+</tr>
+<tr>
+<td>文档节点</td>
+<td>9</td>
+</tr>
+<tr>
+<td>文档类型节点</td>
+<td>10</td>
+</tr>
+<tr>
+<td>文档片段节点</td>
+<td>11</td>
+</tr>
+<tr>
+<td>DTD声明节点</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<p>重点理解前三种节点。</p>
+<p>每个节点有<code>nodeName</code>属性，文本节点和属性节点的<code>nodeValue</code>属性。</p>
+<ul>
+<li><p>常见的节点获取API</p>
+<p>常用：children parentNode offsetParent</p>
+<p>不常用：firstElementChild &#x2F; firstChild lastElementChild &#x2F; lastChild nextElementSibling &#x2F; nextSibling previousElementSibling &#x2F; previouSibling</p>
+</li>
+</ul>
+<h3 id="创建、添加、删除节点"><a href="#创建、添加、删除节点" class="headerlink" title="创建、添加、删除节点"></a>创建、添加、删除节点</h3><ul>
+<li><p>创建节点</p>
+<p>createElement 创建一个元素节点；</p>
+<p>createTextNode 创建一个文本节点；</p>
+<p>createDocumentFragment 创建一个文档碎片，先将多个节点整合到这里面再统一添加。</p>
+</li>
+<li><p>添加节点</p>
+<p>appendChild 元素最后添加一个子节点；</p>
+<p>insertBefore 在元素某个子节点之前添加新子节点，第一个参数为新节点，第二个参数为已存在的子节点。</p>
+</li>
+<li><p>替换节点</p>
+<p>replaceChild 用新节点替换某个子节点，第一个参数为新节点，第二个参数为已存在的某个子节点。</p>
+</li>
+<li><p>删除节点</p>
+<p>removeChild 删除元素的某个子节点。</p>
+</li>
+</ul>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/08/25/WebFrontend/JavaScript/Web%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97(office)/">← Next Web学习日志(office)</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/08/20/WebFrontend/JavaScript/js(%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97)/">js(学习日志) Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E8%AF%86DOM"><span class="toc-number">1.</span> <span class="toc-text">初识DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">获取节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9CHTML%E5%86%85%E5%AE%B9"><span class="toc-number">1.2.</span> <span class="toc-text">操作HTML内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">监听事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9%E7%9A%84%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">操作节点的标签属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">操作样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%90%8D%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.6.</span> <span class="toc-text">类名的操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM%E8%8A%82%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">DOM节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.0.1.</span> <span class="toc-text">节点类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E3%80%81%E6%B7%BB%E5%8A%A0%E3%80%81%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="toc-number">2.0.2.</span> <span class="toc-text">创建、添加、删除节点</span></a></li></ol></li></ol></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

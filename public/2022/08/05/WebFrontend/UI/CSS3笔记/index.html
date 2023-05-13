@@ -1,0 +1,559 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CSS3笔记 | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>CSS3笔记</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-08-04T17:44:58.000Z" id="date"> 2022-08-05</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-04-18T07:06:51.000Z" id="updated"> 2023-04-18</time></div></span></div></div><hr><div id="post-content"><h1 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h1><h2 id="理解CSS：设想元素周围有一个盒子"><a href="#理解CSS：设想元素周围有一个盒子" class="headerlink" title="理解CSS：设想元素周围有一个盒子"></a>理解CSS：设想元素周围有一个盒子</h2><p>CSS允许你创建规则，来控制每个盒子（以及盒子中的内容）的呈现方式。</p>
+<h2 id="CSS将样式规则与HTML元素关联"><a href="#CSS将样式规则与HTML元素关联" class="headerlink" title="CSS将样式规则与HTML元素关联"></a>CSS将样式规则与HTML元素关联</h2><p>CSS通过将规则与HTML元素相关联的方式来工作。这些规则用来控制指定元素中的内容如何显示。一条CSS规则包含两个部分：一个<strong>选择器</strong>和一条声明</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220731142459124.png" alt="image-20220731142459124"></p>
+<p>这条规则表明所有<code>&lt;p&gt;</code>元素都应该用Arial字体来显示。</p>
+<p><strong>选择器</strong>表明要应用规则的元素。同一条规则可以应用在多个元素上，前提是你需要将这些元素名用逗号隔开。</p>
+<p><strong>声明</strong>用于表明应该如何显示选择器指明的元素。声明分为两个部分（属性和值）并以冒号作为分隔符。</p>
+<h2 id="CSS属性会影响元素的显示方式"><a href="#CSS属性会影响元素的显示方式" class="headerlink" title="CSS属性会影响元素的显示方式"></a>CSS属性会影响元素的显示方式</h2><p>CSS声明位于花括号中，而且每条声明都由两部分组成：<strong>属性</strong>和<strong>值</strong>，两者由冒号隔开。可在一条声明内指定多个属性，各属性之间用分号隔开。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>，<span class="hljs-selector-tag">h3</span> &#123;<br>    <span class="hljs-attribute">font-family</span>: Arial;<br>    <span class="hljs-attribute">color</span>: yellow;&#125;  <span class="hljs-comment">/* 属性：值 */</span><br></code></pre></td></tr></table></figure>
+
+<p>上面这条规则表明所有的<code>&lt;h1&gt;</code>元素、<code>&lt;h2&gt;</code>元素和<code>&lt;h3&gt;</code>元素将以黄色的Arial字体显示。</p>
+<p><strong>属性</strong>表明你想要改变元素的哪些方面。例如颜色、字体、宽度、高度和边框.</p>
+<p><strong>值</strong>用来指定想要在所选属性上应用的设置。例如：如果指定一个颜色属性，那么这个属性的值就算你希望这些元素中的文本所呈现的颜色。</p>
+<h2 id="使用外部CSS"><a href="#使用外部CSS" class="headerlink" title="使用外部CSS"></a>使用外部CSS</h2><p><code>&lt;link&gt;</code></p>
+<p>在HTML文档中，<code>&lt;link&gt;</code>元素可以告诉浏览器何处寻找用于定义页面样式的CSS文件。它是一个空元素（也就是说它不需要结束标签），而且位于<code>&lt;head&gt;</code>元素中。它应该使用以下三个特性：</p>
+<blockquote>
+<p>href：该特性表明CSS文件的路径（通常位于css或styles文件夹中）。</p>
+<p>type：表明该页面所连接的文档的类型。它的值应该是text&#x2F;css。</p>
+<p>rel：该特性表明HTML页面与被链接文件的关系。当链接到一个CSS文件时，该特性的值应该为stylesheet。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span> = <span class="hljs-string">&quot;css/styles.css&quot;</span> <span class="hljs-attr">type</span> = <span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">rel</span> = <span class="hljs-string">&quot;stylesheet&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>当建立一个包含有多个页面的网站时，应该使用外部样式表。这样做具有以下好处：</p>
+<blockquote>
+<ul>
+<li>允许所有页面使用同样的样式规则（重复利用性）。</li>
+<li>将页面的内容和表现分离。</li>
+<li>可以通过修改一个文件（而不必修改每个页面）来改变所有页面的样式。</li>
+</ul>
+</blockquote>
+<h2 id="使用内部CSS"><a href="#使用内部CSS" class="headerlink" title="使用内部CSS"></a>使用内部CSS</h2><p><code>&lt;style&gt;</code></p>
+<p>可以在HTML页面添加CSS规则，这时需要将它们置于<code>&lt;style&gt;</code>元素内，<code>&lt;style&gt;</code>元素通常位于页面的<code>&lt;head&gt;</code>元素中。</p>
+<p><code>&lt;style&gt;</code>使用该元素特性表明这些样式是在CSS中指定的。该特性的值应该为text&#x2F;css。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span> = <span class="hljs-string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-tag">body</span> &#123;</span><br><span class="language-css">        ......</span><br><span class="language-css">    &#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h2><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/cssref/css_selectors.asp">CSS选择器参考手册</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220801011311058.png" alt="image-20220801011311058"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220801011327836.png" alt="image-20220801011327836"></p>
+<h2 id="CSS规则如何级联"><a href="#CSS规则如何级联" class="headerlink" title="CSS规则如何级联"></a>CSS规则如何级联</h2><p>如果有两个或者更多的规则应用在同一个元素上，那么理解这些规则的优先级关系是非常重要的。</p>
+<p>就近原则：<br>如果两个选择器完全相同，那么后出现的选择器优先级较高。</p>
+<p>具体性原则：<br>如果一个选择器比其他选择器更加具体，那么具体的选择器优先于一般的选择器。</p>
+<p>重要性：<br>可以在任意属性值的后面添加**!important**来强调这一条规则比应用于同一元素的其他规则更重要。</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>如果在<code>&lt;body&gt;</code>元素上指定了font-family属性或color属性，那么它们将应用于<code>&lt;body&gt;</code>元素的大多数元素上。这是因为font - family属性被这些子元素所继承。</p>
+<p>background-color属性和border属性不会被子元素继承。如果这些元素会被继承，那么这些页面会很乱。</p>
+<p>可以通过将属性值设置为<strong>inherit</strong>来强制大多数元素从它的父元素中继承属性值。在本示例中，<code>&lt;div&gt;</code>元素(属于page类)从应用于<code>&lt;body&gt;</code>元素的CSS规则中继承了padding属性的值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span> = <span class="hljs-string">&quot;page&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Potatoes<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">P</span>&gt;</span><br>        There are dozens of different potato varieties.<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">P</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>        They are usually described as early.second early and maincrop potatoes.<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">font-family</span>: Arual, Verdana, sans-serif;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#665544</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;<br>&#125;<br><span class="hljs-selector-class">.page</span> &#123;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#664433</span>;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efefef</span>;<br>    <span class="hljs-attribute">padding</span>: inherit;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h1><h2 id="前景色color"><a href="#前景色color" class="headerlink" title="前景色color"></a>前景色color</h2><p>color属性允许指定元素中文本的颜色。可以在CSS中采用以下三种方法之一来指定任何颜色：</p>
+<p>RGB值：<br>三原色组成颜色，例如：rgb(100,100,90)。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/0823dd54564e92580c2f0c8d9482d158ccbf4ebe" alt="img"></p>
+<p>十六进制编码：<br>这种方式是通过六位十六进制编码表示颜色，其中的六位编码（每两位构成一个值，共三个值）前面加一个#号。例如：#ee3e80。</p>
+<p>颜色名称：<br>浏览器可以标识147种预定义的颜色名称。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-comment">/* color name */</span><br><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">color</span>: DarkCyan;<br>&#125;<br><span class="hljs-comment">/* hex code */</span><br><span class="hljs-selector-tag">h2</span> &#123;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#ee3e80</span>;<br>&#125;<br><span class="hljs-comment">/* rgb calue */</span><br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">100.100</span>.<span class="hljs-number">90</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="背景色background-color"><a href="#背景色background-color" class="headerlink" title="背景色background-color"></a>背景色background-color</h2><p>CSS在处理每个HTML元素时都假设它们位于一个无形的盒子中，而background-color属性设置的正是这个盒子的背景色。</p>
+<p>如果为指定背景色，那么背景将是透明的。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>);<br>&#125;<br><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: darkcyan;<br>&#125;<br><span class="hljs-selector-tag">h2</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ee3e80</span>;<br>&#125;<br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: white;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="CSS3：透明度"><a href="#CSS3：透明度" class="headerlink" title="CSS3：透明度"></a>CSS3：透明度</h2><p><code>opacity,rgba</code></p>
+<p>opacity 指定透明度，数组介于0.1~1.0之间，0.5表示50%的透明度，0.15表示15%的透明度（会影响子元素）</p>
+<p>CSS3中的rgba属性比rgb多个了标识透明度的值。这个值称为alpha值，数组介于0.1~1.0之间，0.5表示50%的透明度，0.15表示15%的透明度。（不会影响子元素）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.one</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.5</span>;<br>&#125;<br><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.two</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220802014044242.png" alt="image-20220802014044242"></p>
+<h2 id="CSS3：HSL和HSLA"><a href="#CSS3：HSL和HSLA" class="headerlink" title="CSS3：HSL和HSLA"></a>CSS3：HSL和HSLA</h2><p>hsl颜色属性以及作为一种新的颜色指定方式进入CSS3中。该属性的值以hsl开头，位于其后的括号内是以下几种值：</p>
+<blockquote>
+<p>色调：通过介于0°~360°之间的一个角度表示。</p>
+<p>饱和度：通过百分数表示。</p>
+<p>明度：通过百分数表示，0%表示黑色，50%表示标准色，100%表示白色</p>
+<p>ALPHA：透明度，该值由于0~1.0之间的数字表示。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#C8C8C8</span>; <span class="hljs-comment">/*添加该值为了兼容旧浏览器*/</span><br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0%</span>, <span class="hljs-number">78</span>);<br>&#125;<br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ffffff</span>;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsla</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100%</span>, <span class="hljs-number">100%</span>, <span class="hljs-number">0.5</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h1><h2 id="字体术语"><a href="#字体术语" class="headerlink" title="字体术语"></a>字体术语</h2><blockquote>
+<p>衬托字体(SERIF)：衬托字体在字母主要笔画的末端有一些额外的装饰。这些装饰被称为衬线</p>
+<p>无衬线字体(SABS-SERIF)：无衬线字体中的字母拥有笔直的线条，因此它的设计更加简洁。</p>
+<p>等宽字体(MONOSPACE)：等宽字体中的每个字母的宽度都相同，而非等宽字体中字母的宽度不同。</p>
+<p>草书字体(Cursive)： 模仿了人类的笔迹。</p>
+<p>幻想字体(Fantasy)：是装饰性&#x2F;俏皮的字体。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">font-family</span>: Georgia, Times, serif; <span class="hljs-comment">/*衬托字体*/</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="字体大小font-size"><a href="#字体大小font-size" class="headerlink" title="字体大小font-size"></a>字体大小font-size</h2><p>dont-size属性用来指定字体大小，常用方式：</p>
+<blockquote>
+<p>像素：像素之所以能被广泛使用，是因为它能让Web设计人员对文本占用的空间进行精准的控制。它的表示方式是在像素值后面加个px。</p>
+<p>百分数：文本在浏览器中默认大小是16px。因此75%相当于12px，200%相当于32px。</p>
+<p>EM值：lem相当于一个字母m的宽度。</p>
+</blockquote>
+<h2 id="选用更多字体-font-face"><a href="#选用更多字体-font-face" class="headerlink" title="选用更多字体@font-face"></a>选用更多字体@font-face</h2><p>@font-face通过指定字体的下载地址(当这种字体在用户的计算机上没有安装时，就会自动下载)让你调用字体，即使用户在浏览时使用的计算机上没有安装相应的字体也可以加以使用。</p>
+<blockquote>
+<p>font-family：该属性指定字体的名称</p>
+<p>src：该属性指定字体的路径。</p>
+<p>format：该属性指定所提供字体的格式。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@font-face</span> &#123;<br>    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&#x27;ChunckFiveRegular&#x27;</span>;<br>    <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;fonts/chunkfive.eot&#x27;</span>);<br>&#125;<br><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span> &#123;<br>    <span class="hljs-attribute">font-family</span>: ChukFiveRegular, Georgia, serif;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="粗体font-weight"><a href="#粗体font-weight" class="headerlink" title="粗体font-weight"></a>粗体font-weight</h2><p>font-weight属性允许创建粗体文本。该属性通常选用以下两个值：</p>
+<blockquote>
+<p>normal：该值使文本以普通粗细显示。</p>
+<p>bold：该值使文本以粗体显示</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.credits</span> &#123;<br>    <span class="hljs-attribute">font-weight</span>: bold;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="斜体font-style"><a href="#斜体font-style" class="headerlink" title="斜体font-style"></a>斜体font-style</h2><p>font-style属性允许创建斜体文本：该属性有三个可选值：</p>
+<blockquote>
+<p>normal：该值使文以普通字体（相对斜体和倾斜来说）显示。</p>
+<p>italic：该值使文本以斜体显示。</p>
+<p>oblique：该值使文本倾斜显示。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.credits</span> &#123;<br>    <span class="hljs-attribute">font-style</span>: italic;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="大写和小写text-transform"><a href="#大写和小写text-transform" class="headerlink" title="大写和小写text-transform"></a>大写和小写text-transform</h2><p>text-transform属性可以改变文本的大小写，可选用以下值之一：</p>
+<blockquote>
+<p>uppercase：该值使文本以大写显示。</p>
+<p>lowercase：该值使文本以小写显示。</p>
+<p>capitalize：该值使每个单词的首字母以大写显示。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">text-transform</span>: uppercase;<br>&#125;<br><span class="hljs-selector-tag">h2</span> &#123;<br>    <span class="hljs-attribute">text-transform</span>: lowercase;<br>&#125;<br><span class="hljs-selector-class">.credits</span> &#123;<br>    <span class="hljs-attribute">text-transform</span>: capitalize;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="下划线和删除线text-decoratioon"><a href="#下划线和删除线text-decoratioon" class="headerlink" title="下划线和删除线text-decoratioon"></a>下划线和删除线text-decoratioon</h2><p>text-decoratioon属性可以选用以下值：</p>
+<blockquote>
+<p>none：删除应用在文本上的装饰线</p>
+<p>underline：该值会在文本底部增加一条实线</p>
+<p>overline：该值会在文本顶部增加一条实线</p>
+<p>line-through：该值会用一条实现穿过文字</p>
+</blockquote>
+<h2 id="行间距line-height"><a href="#行间距line-height" class="headerlink" title="行间距line-height"></a>行间距line-height</h2><p>在css中，line-height属性用于设置文本行的整个高度</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.4em</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="字母间距和单词间距letter-spacing，word-spacing"><a href="#字母间距和单词间距letter-spacing，word-spacing" class="headerlink" title="字母间距和单词间距letter-spacing，word-spacing"></a>字母间距和单词间距letter-spacing，word-spacing</h2><p><strong>字距</strong>是印刷行业用来描述字母之间空隙的一个术语。可以使用letter-spacing属性来控制字母之间的间距。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>&#123;<br>    <span class="hljs-attribute">text-transform</span>: uppercase;<br>    <span class="hljs-attribute">letter-spacing</span>: <span class="hljs-number">0.2em</span>;<br>&#125;<br><span class="hljs-selector-class">.credits</span> &#123;<br>    <span class="hljs-attribute">font-weight</span>: bold;<br>    <span class="hljs-attribute">word-spacing</span>: <span class="hljs-number">1em</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="对齐方式text-align"><a href="#对齐方式text-align" class="headerlink" title="对齐方式text-align"></a>对齐方式text-align</h2><p>text-align用于控制文本的对齐方式。该属性可以选用以下值：</p>
+<blockquote>
+<p>left：该值表明文本向左对齐</p>
+<p>right：该值表明文本向右对齐</p>
+<p>center：该值将文本居中显示</p>
+<p>justify：该值表明文本两端对齐，即段落中除了末行以外的其他每行都要在宽度上占满文本所在的容器。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">text-align</span>: left;<br>&#125;<br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">text-align</span>: justify;<br>&#125;<br><span class="hljs-selector-class">.credits</span> &#123;<br>    <span class="hljs-attribute">text-align</span>: right;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="垂直对齐vertical-align"><a href="#垂直对齐vertical-align" class="headerlink" title="垂直对齐vertical-align"></a>垂直对齐vertical-align</h2><p>vertical-align属性可以选用的值包括：</p>
+<blockquote>
+<ul>
+<li>baseline</li>
+<li>sub</li>
+<li>super</li>
+<li>top</li>
+<li>text-top</li>
+<li>middle</li>
+<li>bottom</li>
+<li>text-bottom</li>
+</ul>
+</blockquote>
+<p>它还可以选用长度值（通常以像素或em值指定）或是行高的百分数。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#six-moths</span> &#123;<br>    <span class="hljs-attribute">vertical-align</span>: text-top;<br>&#125;<br><span class="hljs-selector-id">#one-year</span> &#123;<br>    <span class="hljs-attribute">vertical-align</span>: baseline;<br>&#125;<br><span class="hljs-selector-id">#two-years</span> &#123;<br>    <span class="hljs-attribute">vertical-align</span>: text-bottom;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220802182646488.png" alt="image-20220802182646488"></p>
+<h2 id="文本缩进text-indent"><a href="#文本缩进text-indent" class="headerlink" title="文本缩进text-indent"></a>文本缩进text-indent</h2><p>text-indent属性允许将元素中的首行文本进行所见，通常采用像素值或em值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">h1</span>&#123;<br>    <span class="hljs-attribute">text-indent</span>: -<span class="hljs-number">9999px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="CSS3：投影text-shadow"><a href="#CSS3：投影text-shadow" class="headerlink" title="CSS3：投影text-shadow"></a>CSS3：投影text-shadow</h2><p>该属性用于创建投影，投影指的是比文本颜色更暗的版本，它位于文本的后方并略有偏移。该属性还可以通过添加亮度比文本稍高的阴影来创建浮雕效果。</p>
+<p>由于创建投影需要指定三个长度值和一种颜色，因此该属性的值非常复杂：</p>
+<blockquote>
+<ul>
+<li>第一个长度值表明阴影向左或向右延伸的距离</li>
+<li>第二个长度值表明阴影向上或向下延伸的距离</li>
+<li>第三个长度值为可选项，它用于指定投影的模糊程度</li>
+<li>最后一项是投影的颜色值</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span>&#123;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#aaaaaa</span>;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#ffffff</span>;<br>    <span class="hljs-attribute">text-shadow</span>: -<span class="hljs-number">1px</span> -<span class="hljs-number">1px</span> <span class="hljs-number">#666666</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="首字母或首行文本-first-letter-first-line"><a href="#首字母或首行文本-first-letter-first-line" class="headerlink" title="首字母或首行文本:first-letter, :first-line"></a>首字母或首行文本:first-letter, :first-line</h2><p>可以通过:first-letter和 :first-line为一个元素中的首字母或者首行文本另外指定一个值。他们被称为伪元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.intro</span><span class="hljs-selector-pseudo">:first</span>-letter &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">200%</span>;<br>&#125;<br><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.inro</span><span class="hljs-selector-pseudo">:first</span>-line&#123;<br>    <span class="hljs-attribute">font-weight</span>: bold;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="链接样式-link-visited"><a href="#链接样式-link-visited" class="headerlink" title="链接样式:link, :visited"></a>链接样式:link, :visited</h2><p>默认情况下,浏览器通常以蓝色显示链接并附带下划线,此外,浏览器还会改变那些已经访问过的链接的颜色,以此来帮助用户分清他们已经访问过哪些页面.</p>
+<p>在CSS中,有两个伪类允许为已访问的和未访问的链接定义不同的样式.</p>
+<blockquote>
+<p>:link 该伪类允许给未访问的链接设置样式</p>
+<p>:visited 该伪类允许给访问过链接设置样式</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> &#123;<br>    <span class="hljs-attribute">color</span>: deeppink;<br>    <span class="hljs-attribute">text-decoration</span>: none;<br>&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span> &#123;<br>    <span class="hljs-attribute">color</span>: black;<br>&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>    <span class="hljs-attribute">color</span>: deeppink;<br>    <span class="hljs-attribute">text-decoration</span>: underline;<br>&#125;<br><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span>&#123;<br>    <span class="hljs-attribute">color</span>: darkcyan;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="相应用户-hover-active-focus"><a href="#相应用户-hover-active-focus" class="headerlink" title="相应用户 :hover, :active, :focus"></a>相应用户 :hover, :active, :focus</h2><p>当用户与元素进行交互时,可使用下面的三种伪元素来改变元素的外观.</p>
+<blockquote>
+<p>:hover 该伪元素在用户将定位设备(比如光标)悬停在某个元素上时生效</p>
+<p>:active 该伪类在元素上进行操作时生效</p>
+<p>:focus 该伪类在元素拥有拥有焦点时生效</p>
+<p>当使用多个伪类时,应当遵循:link,:visited,:hover,:focus,:active顺序</p>
+</blockquote>
+<h2 id="特性选择器"><a href="#特性选择器" class="headerlink" title="特性选择器"></a>特性选择器</h2><p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803021359528.png" alt="image-20220803021359528"></p>
+<h1 id="盒子"><a href="#盒子" class="headerlink" title="盒子"></a>盒子</h1><h2 id="盒子的大小width-height"><a href="#盒子的大小width-height" class="headerlink" title="盒子的大小width, height"></a>盒子的大小width, height</h2><p>默认情况下,一个盒子的大小刚好容下其中的内容,并根据其中内容的变化而变化.如果自定义盒子的大小,就需要用到windth和height属性.</p>
+<p>指定盒子大小最常用的方式是像素、百分数或em值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>        一段文本<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span><span class="hljs-selector-class">.box</span> &#123;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">300px</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">400px</span>;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ee3e80</span>;<br>&#125;<br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">75%</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">75%</span>;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#eeddda</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="宽度限制min-width-max-width"><a href="#宽度限制min-width-max-width" class="headerlink" title="宽度限制min-width, max-width"></a>宽度限制min-width, max-width</h2><p>为了适应用户的屏幕大小，有些设计会适时地展开或收缩页面。在此设计中min-width属性指定一个盒子在浏览器窗口较窄时可以显示的最小宽度，max-width属性指定一个盒子在浏览器较宽时成伸展的最大宽度。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span> = <span class="hljs-string">&quot;description&quot;</span>&gt;</span><br>    ......<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>......<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">td</span><span class="hljs-selector-class">.description</span> &#123;<br>    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">450px</span>;<br>    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">650px</span>;<br>    <span class="hljs-attribute">text-align</span>: left;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="高度限制min-height-max-height"><a href="#高度限制min-height-max-height" class="headerlink" title="高度限制min-height, max-height"></a>高度限制min-height, max-height</h2><p>和宽度限同理</p>
+<h2 id="内容移除-overflow"><a href="#内容移除-overflow" class="headerlink" title="内容移除 overflow"></a>内容移除 overflow</h2><p>ofverflow属性告诉浏览器当盒子的内容超过盒子本身时如何显示。它有两个属性值可供选择：</p>
+<blockquote>
+<p>hidden：该属性会直接把溢出盒子空间的内容进行隐藏。</p>
+<p>scroll：该属性会在盒子上添加一个滚动条，这样用户可以通过滚动滑块来查看剩余的内容。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.one</span> &#123;<br>    <span class="hljs-attribute">overflow</span>: hidden;<br>&#125;<br><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.two</span> &#123;<br>    <span class="hljs-attribute">overflow</span>: scroll;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803025548770.png" alt="image-20220803025548770"></p>
+<h2 id="外框、外边距和内边距"><a href="#外框、外边距和内边距" class="headerlink" title="外框、外边距和内边距"></a>外框、外边距和内边距</h2><p>有三种属性可以应用在所有盒子上，可以通过调节这些属性来控制盒子的外观：</p>
+<blockquote>
+<p>外框(BORDER)</p>
+<p>外边距(MARGIN)</p>
+<p>内边距(PADDING)</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803030020194.png" alt="image-20220803030020194"></p>
+<h2 id="边框宽度border-width"><a href="#边框宽度border-width" class="headerlink" title="边框宽度border-width"></a>边框宽度border-width</h2><p>border-width属性用来控制边框宽度。该属性可以时像素值(不可以使用百分数)，也可以选择以下值之一:</p>
+<blockquote>
+<p>thin</p>
+<p>medium</p>
+<p>think</p>
+</blockquote>
+<p>可以通过下面4种属性分别对各个边框大小进行控制:</p>
+<blockquote>
+<p>border-top-width</p>
+<p>border-right-width</p>
+<p>border-bottom-width</p>
+<p>border-left-width</p>
+</blockquote>
+<p>又或者：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">border-width</span>: <span class="hljs-number">2px</span> <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span>; <span class="hljs-comment">/*顺序为，上方，右侧，下方，左侧*/</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="边框样式border-style"><a href="#边框样式border-style" class="headerlink" title="边框样式border-style"></a>边框样式border-style</h2><p>可使用border-style属性来控制边框的样式。该属性可以选用以下值：</p>
+<blockquote>
+<p>solid 一条实现</p>
+<p>dotted 一串方形点</p>
+<p>dashed 一条虚线</p>
+<p>double 两条实线</p>
+<p>ridge 显示为在页面上凸起的效果</p>
+<p>inset 显示为嵌入页面的效果</p>
+<p>outset 看起来像是凸出屏幕</p>
+<p>hedden&#x2F;none 不显示任何边框</p>
+<p>每个边也可以单独设置样式</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.one</span> &#123;<span class="hljs-attribute">border-style</span>: solid;&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803031425280.png" alt="image-20220803031425280"></p>
+<h2 id="边框颜色border-color"><a href="#边框颜色border-color" class="headerlink" title="边框颜色border-color"></a>边框颜色border-color</h2><p>可利用RGB值、十六进制码或是CSS颜色名称来指定边框颜色。</p>
+<p>每个边框可以单独设置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.one</span> &#123;<br>    <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#0088dd</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="快捷方式border"><a href="#快捷方式border" class="headerlink" title="快捷方式border"></a>快捷方式border</h2><p>border属性允许你在一个属性中同时指定边框的宽度、样式和颜色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">250px</span>;<br>    <span class="hljs-attribute">border</span>:<span class="hljs-number">3px</span> dotted <span class="hljs-number">#0088dd</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803032040230.png" alt="image-20220803032040230"></p>
+<h2 id="内边距padding"><a href="#内边距padding" class="headerlink" title="内边距padding"></a>内边距padding</h2><p>padding属性用来指定元素的内容与元素边框之间保持多大的空隙。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803032254374.png" alt="image-20220803032254374"></p>
+<h2 id="外边距margin"><a href="#外边距margin" class="headerlink" title="外边距margin"></a>外边距margin</h2><p>margin属性用来控制盒子之间的空隙。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">20px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803032433775.png" alt="image-20220803032433775"></p>
+<h2 id="内容居中"><a href="#内容居中" class="headerlink" title="内容居中"></a>内容居中</h2><p>如果想让一个盒子在页面上居中显示（或者在某个元素居中显示），可将left-margin属性和right-margin属性的值设置为auto</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">text-align</span>: center;<br>&#125;<br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">50px</span>;<br>    <span class="hljs-attribute">border</span>: <span class="hljs-number">20px</span> solid <span class="hljs-number">#0088dd</span>;<br>&#125;<br><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.example</span> &#123;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span> auto <span class="hljs-number">10px</span> auto;<br>    <span class="hljs-attribute">text-align</span>: left;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803033236133.png" alt="image-20220803033236133"></p>
+<h2 id="内联元素与块级元素的转换display"><a href="#内联元素与块级元素的转换display" class="headerlink" title="内联元素与块级元素的转换display"></a>内联元素与块级元素的转换display</h2><p>display属性允许你将一个内联元素转换成一个块级元素，反之赤然，而且该属性还可以从页面上隐藏元素。该属性可以选用以下值：</p>
+<blockquote>
+<p>inline：该值可以使一个块级元素表现得像一个内联元素。</p>
+<p>block：该值可以使一个内联元素表现得像一个块级元素。</p>
+<p>inline-block：该值可以使一个块级元素像内联元素那样浮动并保持其他的块级元素特征。</p>
+<p>none：该值将一个元素从页面上隐藏。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">li</span> &#123;<br>    <span class="hljs-attribute">display</span>: inline;<br>    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">10px</span>;<br>&#125;<br><span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.coming-soon</span> &#123;<br>    <span class="hljs-attribute">display</span>: none;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803034202040.png" alt="image-20220803034202040"></p>
+<h2 id="盒子的隐藏visibility"><a href="#盒子的隐藏visibility" class="headerlink" title="盒子的隐藏visibility"></a>盒子的隐藏visibility</h2><p>visibility属性允许从用户的视线中隐藏盒子，但它保留了元素原来占用的空间。该属性可以选用以下值之一：</p>
+<blockquote>
+<p>hidden：该值用于隐藏元素。</p>
+<p>visible：该值用于显示元素。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">li</span> &#123;<br>    <span class="hljs-attribute">display</span>: inline;<br>    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">100px</span>;<br>&#125;<br><span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.coming-soom</span> &#123;<br>    <span class="hljs-attribute">visibility</span>: hidden;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803035335170.png" alt="image-20220803035335170"></p>
+<h2 id="CSS3：边框图像border-image"><a href="#CSS3：边框图像border-image" class="headerlink" title="CSS3：边框图像border-image"></a>CSS3：边框图像border-image</h2><p>border-image属性将图片应用到盒子的边框上。它采用一张背景图片，并将图片切割成九块。</p>
+<p>该属性需要三种信息：</p>
+<blockquote>
+<ul>
+<li><p>图片的URL</p>
+</li>
+<li><p>切割图片的位置</p>
+</li>
+<li><p>如何处理直边，可以选用以下值：</p>
+<ul>
+<li>stretch 伸展图片</li>
+<li>repeat 重复图片</li>
+<li>round 平铺图片</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#borderimg</span> &#123;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid transparent;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;<br>  <span class="hljs-attribute">border-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">border.png</span>) <span class="hljs-number">30</span> stretch;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803040837063.png" alt="image-20220803040837063"></p>
+<h2 id="CSS3：盒子的阴影box-shadow"><a href="#CSS3：盒子的阴影box-shadow" class="headerlink" title="CSS3：盒子的阴影box-shadow"></a>CSS3：盒子的阴影box-shadow</h2><p>box-shadow属性允许在盒子的周围增加阴影。使用该属性时，至少包含下列项目中前两项的值以及一个颜色值。</p>
+<blockquote>
+<p>水平偏移：负值表示将阴影置于盒子的左侧。</p>
+<p>垂直偏移：负值表示将阴影置于盒子的上方。</p>
+<p>模糊距离：缺省默认为实边。</p>
+<p>阴影扩展：如果使用该值，正值会使用阴影向四周延伸，负值则会使阴影收缩。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">#777777</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803041620416.png" alt="image-20220803041620416"></p>
+<h2 id="CSS3：圆角border-radius"><a href="#CSS3：圆角border-radius" class="headerlink" title="CSS3：圆角border-radius"></a>CSS3：圆角border-radius</h2><p>css3引入了在盒子上创建圆角的功能。为了实现该功能，需要使用一个称为border-radius的属性。该值表示半径（像素）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="CSS3：椭圆形border-radius"><a href="#CSS3：椭圆形border-radius" class="headerlink" title="CSS3：椭圆形border-radius"></a>CSS3：椭圆形border-radius</h2><p>要创建更复杂的形状，可给圆角的横向值和纵向值指定不同的距离。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">80px</span> <span class="hljs-number">50px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803042115435.png" alt="image-20220803042115435"></p>
+<h1 id="列表、表格和表单"><a href="#列表、表格和表单" class="headerlink" title="列表、表格和表单"></a>列表、表格和表单</h1><h2 id="项目符号样式list-style-type"><a href="#项目符号样式list-style-type" class="headerlink" title="项目符号样式list-style-type"></a>项目符号样式list-style-type</h2><p>list-style-type属性允许控制项目符号（也成为标记）的形状或样式。</p>
+<p>该属性可在应用到<code>&lt;ol&gt;</code>元素、<code>&lt;ul&gt;</code>元素和<code>&lt;li&gt;</code>元素的规则中使用。</p>
+<p>无序列表：</p>
+<p>对于一个无序列表的list-style-type属性，可以使用以下值：</p>
+<blockquote>
+<p>none</p>
+<p>disc</p>
+<p>circle</p>
+<p>square</p>
+</blockquote>
+<p>有序列表：</p>
+<p>对于一个有序（编号）列表的list-style-type属性，可以使用以下值：</p>
+<blockquote>
+<p>decimal：123</p>
+<p>decimal-leading-zero：01 02 03</p>
+<p>lower-alpha：a b c</p>
+<p>upper-alpha：A B C</p>
+<p>lower-roman：i. ii. iii.</p>
+<p>upper-roman：I II III</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">ol</span> &#123;<br>    <span class="hljs-attribute">list-style-type</span>: lower-roman;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="项目图像list-style-image"><a href="#项目图像list-style-image" class="headerlink" title="项目图像list-style-image"></a>项目图像list-style-image</h2><p>可利用list-style-imagge属性将一个图像作为项目符号使用。</p>
+<p>该属性的值以字母url开头，后秒跟着一对圆括号。在括号里面，图像的路径在双引号中给出。</p>
+<p>该属性可以在应用到<code>&lt;ul&gt;</code>元素和<code>&lt;li&gt;</code>元素的规则中使用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">ul</span> &#123;<br>    <span class="hljs-attribute">list-style-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;images/star.png&quot;</span>);<br>&#125;<br><span class="hljs-selector-tag">li</span> &#123;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span> <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">0px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803152800407.png" alt="image-20220803152800407"></p>
+<h2 id="标记的定位list-style-position"><a href="#标记的定位list-style-position" class="headerlink" title="标记的定位list-style-position"></a>标记的定位list-style-position</h2><p>默认情况下，列表会缩进到页面中。list-style-position属性用于表明标记显示的位置，是在包含主体内容的盒子的内部，还是其在外部。</p>
+<p>该属性可以选用以下两个值：</p>
+<blockquote>
+<p>outside：该值表明标记于文本块的左侧（这也是未使用该属性时的默认处理方式）</p>
+<p>inside：该值表明标记位于文本的内部，同时文本块会被缩进。  </p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">ul</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">250</span>;<br>&#125;<br><span class="hljs-selector-tag">li</span> &#123;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;<br>&#125;<br><span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.illuminations</span> &#123;<br>    <span class="hljs-attribute">list-style-position</span>: outside;<br>&#125;<br><span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.season</span> &#123;<br>    <span class="hljs-attribute">list-style-position</span>: inside;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803154637968.png" alt="image-20220803154637968"></p>
+<h2 id="列表快捷方式list-style"><a href="#列表快捷方式list-style" class="headerlink" title="列表快捷方式list-style"></a>列表快捷方式list-style</h2><p>与其他的一些CSS属性一样，针对列表样式也有一个类似快捷方式的属性。该属性称为list-style，它允许按任意顺序表示标记的样式、图像和位置属性。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">ul</span> &#123;<br>    <span class="hljs-attribute">list-style</span>:inside circle;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220803174955075.png" alt="image-20220803174955075"></p>
+<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><blockquote>
+<p>width：表格宽度</p>
+<p>padding：用于设置每个单元格边框与器内容之间的空隙</p>
+<p>text-transform：用于将表格标题中的内容转换大写。</p>
+<p>letter-spacing，font-size：用于为表格标题的内容增加额外的样式。</p>
+<p>border-top，border-bottom：用于设置表格标题上方和下方的边框。</p>
+<p>text-align：用于将某些单元格中的书写方式设置为左对齐或者向右对齐</p>
+<p>background-color：用于交替改变表格行的背景颜色。</p>
+<p>:hover：在用户把光标悬停在某个表格行时将此高亮显示</p>
+</blockquote>
+<h2 id="空单元格的边框empty-cells"><a href="#空单元格的边框empty-cells" class="headerlink" title="空单元格的边框empty-cells"></a>空单元格的边框empty-cells</h2><p>如果在一个表格中含有空单元格，那么就可以使用empty-cells属性来指定是否显示空单元格的边框。</p>
+<p>如果想显示或隐藏单元格的边框，就需要用到empty-cells属性。可以选用以下三个值之一：</p>
+<blockquote>
+<p>show：用于显示空单元格的边框</p>
+<p>hide：该值用于隐藏空单元格边框</p>
+<p>inherit：如果一个表格嵌套在另一个表格中，那么inherit值表明单元格遵循外部表格规则。</p>
+</blockquote>
+<h2 id="单元格之间的空隙border-spacing，border-collapse"><a href="#单元格之间的空隙border-spacing，border-collapse" class="headerlink" title="单元格之间的空隙border-spacing，border-collapse"></a>单元格之间的空隙border-spacing，border-collapse</h2><p>border-spacing属性允许你控制相邻单元格之间的距离。默认情况下，浏览器经常在每个单元格之间留有一个较小的空隙，利用border-spacing属性可以进行控制，该属性的可选值有：</p>
+<blockquote>
+<p>collapse：该值表示尽可能将单元格相邻的边框合并为一个单独的边框</p>
+<p>separate：该值表示将相邻的边框分离</p>
+</blockquote>
+<h2 id="定义单行文本框样式"><a href="#定义单行文本框样式" class="headerlink" title="定义单行文本框样式"></a>定义单行文本框样式</h2><p>文本输入框的一些常用CSS属性：</p>
+<blockquote>
+<p>font-size：用于设置用户输入文本的大小</p>
+<p>color，background-color：文本颜色,输入框的背景色</p>
+<p>border，border-radius：增加边框边缘,创建圆角</p>
+<p>:focus(伪类)：用来改变输入时文本输入框的背景颜色</p>
+<p>:hover(伪类)：用来在用户将光标悬停在文本输入框时改变文本输入框的背景色</p>
+<p>background-image：为盒子增加背景图像。</p>
+</blockquote>
+<h2 id="定义提交按钮样式"><a href="#定义提交按钮样式" class="headerlink" title="定义提交按钮样式"></a>定义提交按钮样式</h2><blockquote>
+<p>color：控制按钮上文本颜色</p>
+<p>text-shandow：可在支持该属性的浏览器中展示3D效果的文本</p>
+<p>border-bottom：使按钮的下方边框稍粗一点，从而使3D效果更加逼真</p>
+<p>background-color：可以使提交按钮从周围的项目中突显出来</p>
+</blockquote>
+<h2 id="光标样式cursor"><a href="#光标样式cursor" class="headerlink" title="光标样式cursor"></a>光标样式cursor</h2><p>cursor属性用于控制显示给用户的光标的类型。</p>
+<p>例如，对于一个表单，把光标悬停于表单上时将光标设置为手型。常用值如下：</p>
+<blockquote>
+<ul>
+<li><p>auto</p>
+</li>
+<li><p>crosshair</p>
+</li>
+<li><p>default</p>
+</li>
+<li><p>pointer</p>
+</li>
+<li><p>move</p>
+</li>
+<li><p>text</p>
+</li>
+<li><p>wait</p>
+</li>
+<li><p>help</p>
+</li>
+<li><p>url(“cursor.gif”);</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span> &#123;<br>    <span class="hljs-attribute">cursor</span>: move;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220804000157227.png" alt="image-20220804000157227"></p>
+<h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><h2 id="普通流position-static"><a href="#普通流position-static" class="headerlink" title="普通流position:static"></a>普通流position:static</h2><p>在普通流中，每个块级元素都会在下一个元素的上方。由于这是浏览器处理HTML元素的默认方式。</p>
+<h2 id="相对定位position-relative"><a href="#相对定位position-relative" class="headerlink" title="相对定位position:relative"></a>相对定位position:relative</h2><p>如果将一个盒子的position属性值设置为absolute，那么它就会脱离普通流，不在影响页面中其它元素的位置（如同它不在那个位置一样）。</p>
+<p>盒子的位移属性（top或bottom以及keft或right）用于指定元素相对于它的包含元素应该显示在什么位置、</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">position</span>: absolute;<br>    <span class="hljs-attribute">top</span>: <span class="hljs-number">0px</span>;<br>    <span class="hljs-attribute">left</span>: <span class="hljs-number">500px</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">250px</span>;<br>&#125;<br><span class="hljs-selector-tag">p</span> &#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">450px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220804003146839.png" alt="image-20220804003146839"></p>
+<h2 id="固定定位position-fixed"><a href="#固定定位position-fixed" class="headerlink" title="固定定位position:fixed"></a>固定定位position:fixed</h2><p>固定定位时绝对定位的一种类型，将position属性的值设置为fixed就表示固定定位</p>
+<p>固定定位时指元素相对于浏览器窗口进行定位。因此，当用户滚动页面时，这类元素的位置保持不变。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">h1</span> &#123;<br>    <span class="hljs-attribute">position</span>: fixed;<br>    <span class="hljs-attribute">top</span>: <span class="hljs-number">0px</span>;<br>    <span class="hljs-attribute">left</span>: <span class="hljs-number">0px</span>;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efefef</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220804005016393.png" alt="image-20220804005016393"></p>
+<h2 id="重叠元素z-index"><a href="#重叠元素z-index" class="headerlink" title="重叠元素z-index"></a>重叠元素z-index</h2><p>当使用相对定位、固定定位或者绝对定位时，盒子时可以重叠的。如果盒子出现重叠，那么在HTML代码中，后出现的元素将位于页面中先出现元素的上层。</p>
+<p>如果要控制元素的层次，可使用z-index属性。该属性的值是一个数字，数值越大，元素的层级就越靠前。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220804005615033.png" alt="image-20220804005615033"></p>
+<h2 id="浮动元素float"><a href="#浮动元素float" class="headerlink" title="浮动元素float"></a>浮动元素float</h2><p>float属性允许将普通流的元素在它的包含元素内尽可能地向左或向右排列。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">blockquote</span> &#123;<br>    <span class="hljs-attribute">float</span>: right;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220804012217388.png" alt="image-20220804012217388"></p>
+<h2 id="清除浮动clear"><a href="#清除浮动clear" class="headerlink" title="清除浮动clear"></a>清除浮动clear</h2><p>clear属性用于表明一个盒子的左侧或者右侧不允许浮动元素（在同一个包含元素内）。该属性可以选用以下值：</p>
+<blockquote>
+<p>left：盒子的左侧不能接触同一个包含元素内其他任何元素。</p>
+<p>right：盒子的右侧不能接触同一个包含元素内其他任何元素。</p>
+<p>both：盒子的左侧和右侧都不能接触同一个包含元素内的其他任何元素。</p>
+<p>none：盒子的两侧都可以接触元素。</p>
+</blockquote>
+<h2 id="利用浮动创建多列式布局"><a href="#利用浮动创建多列式布局" class="headerlink" title="利用浮动创建多列式布局"></a>利用浮动创建多列式布局</h2><p>许多网页都采用了多列式的设计。这种设计的每一个列用一个<code>&lt;div&gt;</code>元素表示。下面三种CSS属性用来将多个列并排到一起：</p>
+<blockquote>
+<p>width：该属性用于设置列宽</p>
+<p>float：该属性用于将多个列并排</p>
+<p>margin：该属性用于将多个列之间创建空隙</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.columnlof2</span> &#123;<br>    <span class="hljs-attribute">float</span>: left;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">620px</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;<br>&#125;<br><span class="hljs-selector-class">.column2of2</span> &#123;<br>    <span class="hljs-attribute">float</span>: left;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220804015424279.png" alt="image-20220804015424279"></p>
+<h2 id="固定宽度布局，流体布局"><a href="#固定宽度布局，流体布局" class="headerlink" title="固定宽度布局，流体布局"></a>固定宽度布局，流体布局</h2><p>固定宽度布局的设计不会因为用户扩大或缩小浏览器窗口而发生变化。这种设计通常以像素作为衡量单位。</p>
+<p>流体布局设计随着用户对浏览器窗口的扩大或缩小而伸展或收缩，这种设计通常使用百分数。</p>
+<h2 id="多个样式表-import-link"><a href="#多个样式表-import-link" class="headerlink" title="多个样式表@import,link"></a>多个样式表@import,link</h2><p>有些网页设计人员将它们的CSS规则分为几个单独的样式表。例如他们可能会使用一个样式表来控制布局，而用另一个样式表来控制字体和颜色等</p>
+<p>有些设计人员采取更加模块化的方法指定样式表，他们创建单独的样式表分别控制印刷排版、布局、表单、表格，甚至为网站内的每个子栏目指定不同的样式。</p>
+<p>在一个页面内加入多个样式表的方法有两种：</p>
+<blockquote>
+<ul>
+<li>在HTML页面链接一个样式表，然后再这个样式表中使用@import规则来导入其他的样式表。</li>
+<li>可在HTML页面内使用多个<code>&lt;link&gt;</code>元素分别引用样式表。</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Import<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span> = <span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span> = <span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span> = <span class="hljs-string">&quot;css/styles.css&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@import</span> url(<span class="hljs-string">&quot;tables.css&quot;</span>);<br><span class="hljs-keyword">@import</span> url(<span class="hljs-string">&quot;typography.css&quot;</span>);<br><span class="hljs-selector-tag">body</span> &#123;<br>    ......<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h1><h2 id="在CSS中控制图像的大小"><a href="#在CSS中控制图像的大小" class="headerlink" title="在CSS中控制图像的大小"></a>在CSS中控制图像的大小</h2><p>可在CSS中利用width属性和height属性控制一个图像的大小</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;images/magnolia-large.jpg&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;large&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Magnolia&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span><span class="hljs-selector-class">.large</span>&#123;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">500px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用CSS将图像对齐"><a href="#使用CSS将图像对齐" class="headerlink" title="使用CSS将图像对齐"></a>使用CSS将图像对齐</h2><p>相对于<code>&lt;img&gt;</code>元素的align特性来说，越来越多的网页设计人员使用float属性来对齐图像。可以采用两种方式来实现对齐：</p>
+<blockquote>
+<ul>
+<li>将float属性添加到控制图像大小的类中（比如small类）。</li>
+<li>使用如align-left或align-right的名称创建新类，将图像在页面内向左或右对齐。</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span><span class="hljs-selector-class">.align-left</span> &#123;<br>    <span class="hljs-attribute">float</span>: left;<br>    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">10px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用CSS将图像居中"><a href="#使用CSS将图像居中" class="headerlink" title="使用CSS将图像居中"></a>使用CSS将图像居中</h2><p>默认情况下，图像属于内联元素。这意味着它们与周围的文本一起流动。为使图像居中，我们应该转换成块级元素，通过将display属性的值设置为block可以完成转换。</p>
+<p>图像被转换成块级元素后，可采用以下两种方法将其水平居中：</p>
+<blockquote>
+<ul>
+<li><p>对于图像的包含元素，可将其text-align属性的值设置为center。</p>
+</li>
+<li><p>对于图像本身而言，可使用margin属性并将其左，右外边距的值设置为auto。</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span><span class="hljs-selector-class">.align-center</span>&#123;<br>    dispaly: block;<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span> auto;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="背景图像background-image"><a href="#背景图像background-image" class="headerlink" title="背景图像background-image"></a>背景图像background-image</h2><p>background-image属性允许你在任何HTML元素之后放置图像。背景图像可以填满整个页面或是填充页面的一部分。默认情况下，背景图像会自动重复并充满整个盒子。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;images/pattern.gif&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="重复图像background-repeat-background-attachment"><a href="#重复图像background-repeat-background-attachment" class="headerlink" title="重复图像background-repeat background-attachment"></a>重复图像background-repeat background-attachment</h2><p>background-repeat 属性可选用以下四个字值中的一个：</p>
+<blockquote>
+<ul>
+<li><p>repeat：背景图像在水平方向和垂直方向上都进行重复（默认的显示方式）</p>
+</li>
+<li><p>repeat-x：背景图像只在水平方向进行重复</p>
+</li>
+<li><p>repeat-y：背景图像仅在垂直方向上重复</p>
+</li>
+<li><p>no-repeat：背景图像只显示一次。background-attachment属性用于指定背景图像在用户混动页面时的移动方式，可以选用以下两个值中的一个：</p>
+<ul>
+<li>fixed：背景图像固定在页面中的一个位置</li>
+<li>scroll：背景图像随用户上下滚动页面而上下移动</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="背景图像的定位background-position"><a href="#背景图像的定位background-position" class="headerlink" title="背景图像的定位background-position"></a>背景图像的定位background-position</h2><p>如果背景图像不进行重复，可以使用background-position属性来指定背景图像在浏览器在窗口中的位置</p>
+<p>该属性通常会有一堆值。第一个值表示水平位置，第二个值表示垂直位置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220805005947429.png" alt="image-20220805005947429"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;images/tulip.gif&quot;</span>);<br>    <span class="hljs-attribute">background-repeat</span>: no-repeat;<br>    <span class="hljs-attribute">background-position</span>: center top;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="简写background"><a href="#简写background" class="headerlink" title="简写background"></a>简写background</h2><p>该属性比如按照以下顺序来指定，但如果不想指定某个属性，可将其忽略。</p>
+<blockquote>
+<p>background-color</p>
+<p>background-image</p>
+<p>background-repeat</p>
+<p>background-attachment</p>
+<p>background-position</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;<br>    <span class="hljs-attribute">background</span>:<br>        <span class="hljs-built_in">url</span>(<span class="hljs-string">example-1.jpg</span>)<br>        no-repeat top left<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="图像翻转与子画面"><a href="#图像翻转与子画面" class="headerlink" title="图像翻转与子画面"></a>图像翻转与子画面</h2><p>利用CSS，可在用户将光标悬停在一个链接或按钮上时为链接或按钮创建另一种样式（称为翻转），还可以在用户单击它时创建第三种样式。</p>
+<p>当一个单独的图像应用在某个界面的多个不同部位时，它就被称为子画面（sprite）</p>
+<h2 id="CSS3：渐变background-image"><a href="#CSS3：渐变background-image" class="headerlink" title="CSS3：渐变background-image"></a>CSS3：渐变background-image</h2><p>渐变通过background-image属性来创建。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#grad</span> &#123;<br>    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">#e66465</span>, <span class="hljs-number">#9198e5</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/08/05/WebFrontend/UI/HTML5%E5%B8%83%E5%B1%80/">← Next HTML5布局</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/07/31/%E5%8D%9A%E5%AE%A2/Alist%E7%BE%8E%E5%8C%96/">Alist美化 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">CSS简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%A7%A3CSS%EF%BC%9A%E8%AE%BE%E6%83%B3%E5%85%83%E7%B4%A0%E5%91%A8%E5%9B%B4%E6%9C%89%E4%B8%80%E4%B8%AA%E7%9B%92%E5%AD%90"><span class="toc-number">1.1.</span> <span class="toc-text">理解CSS：设想元素周围有一个盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E5%B0%86%E6%A0%B7%E5%BC%8F%E8%A7%84%E5%88%99%E4%B8%8EHTML%E5%85%83%E7%B4%A0%E5%85%B3%E8%81%94"><span class="toc-number">1.2.</span> <span class="toc-text">CSS将样式规则与HTML元素关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E5%B1%9E%E6%80%A7%E4%BC%9A%E5%BD%B1%E5%93%8D%E5%85%83%E7%B4%A0%E7%9A%84%E6%98%BE%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">CSS属性会影响元素的显示方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8CSS"><span class="toc-number">1.4.</span> <span class="toc-text">使用外部CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%86%85%E9%83%A8CSS"><span class="toc-number">1.5.</span> <span class="toc-text">使用内部CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.6.</span> <span class="toc-text">CSS选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E8%A7%84%E5%88%99%E5%A6%82%E4%BD%95%E7%BA%A7%E8%81%94"><span class="toc-number">1.7.</span> <span class="toc-text">CSS规则如何级联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-number">1.8.</span> <span class="toc-text">继承</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">2.</span> <span class="toc-text">颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%99%AF%E8%89%B2color"><span class="toc-number">2.1.</span> <span class="toc-text">前景色color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E8%89%B2background-color"><span class="toc-number">2.2.</span> <span class="toc-text">背景色background-color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9A%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-number">2.3.</span> <span class="toc-text">CSS3：透明度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9AHSL%E5%92%8CHSLA"><span class="toc-number">2.4.</span> <span class="toc-text">CSS3：HSL和HSLA</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">文本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.1.</span> <span class="toc-text">字体术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8Ffont-size"><span class="toc-number">3.2.</span> <span class="toc-text">字体大小font-size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E7%94%A8%E6%9B%B4%E5%A4%9A%E5%AD%97%E4%BD%93-font-face"><span class="toc-number">3.3.</span> <span class="toc-text">选用更多字体@font-face</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%97%E4%BD%93font-weight"><span class="toc-number">3.4.</span> <span class="toc-text">粗体font-weight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%9C%E4%BD%93font-style"><span class="toc-number">3.5.</span> <span class="toc-text">斜体font-style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%86%99%E5%92%8C%E5%B0%8F%E5%86%99text-transform"><span class="toc-number">3.6.</span> <span class="toc-text">大写和小写text-transform</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%88%A0%E9%99%A4%E7%BA%BFtext-decoratioon"><span class="toc-number">3.7.</span> <span class="toc-text">下划线和删除线text-decoratioon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E9%97%B4%E8%B7%9Dline-height"><span class="toc-number">3.8.</span> <span class="toc-text">行间距line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E6%AF%8D%E9%97%B4%E8%B7%9D%E5%92%8C%E5%8D%95%E8%AF%8D%E9%97%B4%E8%B7%9Dletter-spacing%EF%BC%8Cword-spacing"><span class="toc-number">3.9.</span> <span class="toc-text">字母间距和单词间距letter-spacing，word-spacing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8Ftext-align"><span class="toc-number">3.10.</span> <span class="toc-text">对齐方式text-align</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%AF%B9%E9%BD%90vertical-align"><span class="toc-number">3.11.</span> <span class="toc-text">垂直对齐vertical-align</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E7%BC%A9%E8%BF%9Btext-indent"><span class="toc-number">3.12.</span> <span class="toc-text">文本缩进text-indent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9A%E6%8A%95%E5%BD%B1text-shadow"><span class="toc-number">3.13.</span> <span class="toc-text">CSS3：投影text-shadow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%96%E5%AD%97%E6%AF%8D%E6%88%96%E9%A6%96%E8%A1%8C%E6%96%87%E6%9C%AC-first-letter-first-line"><span class="toc-number">3.14.</span> <span class="toc-text">首字母或首行文本:first-letter, :first-line</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E6%A0%B7%E5%BC%8F-link-visited"><span class="toc-number">3.15.</span> <span class="toc-text">链接样式:link, :visited</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%BA%94%E7%94%A8%E6%88%B7-hover-active-focus"><span class="toc-number">3.16.</span> <span class="toc-text">相应用户 :hover, :active, :focus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">3.17.</span> <span class="toc-text">特性选择器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%92%E5%AD%90"><span class="toc-number">4.</span> <span class="toc-text">盒子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E5%AD%90%E7%9A%84%E5%A4%A7%E5%B0%8Fwidth-height"><span class="toc-number">4.1.</span> <span class="toc-text">盒子的大小width, height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%BD%E5%BA%A6%E9%99%90%E5%88%B6min-width-max-width"><span class="toc-number">4.2.</span> <span class="toc-text">宽度限制min-width, max-width</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%BA%A6%E9%99%90%E5%88%B6min-height-max-height"><span class="toc-number">4.3.</span> <span class="toc-text">高度限制min-height, max-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E7%A7%BB%E9%99%A4-overflow"><span class="toc-number">4.4.</span> <span class="toc-text">内容移除 overflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E6%A1%86%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%92%8C%E5%86%85%E8%BE%B9%E8%B7%9D"><span class="toc-number">4.5.</span> <span class="toc-text">外框、外边距和内边距</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86%E5%AE%BD%E5%BA%A6border-width"><span class="toc-number">4.6.</span> <span class="toc-text">边框宽度border-width</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86%E6%A0%B7%E5%BC%8Fborder-style"><span class="toc-number">4.7.</span> <span class="toc-text">边框样式border-style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86%E9%A2%9C%E8%89%B2border-color"><span class="toc-number">4.8.</span> <span class="toc-text">边框颜色border-color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8Fborder"><span class="toc-number">4.9.</span> <span class="toc-text">快捷方式border</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E8%BE%B9%E8%B7%9Dpadding"><span class="toc-number">4.10.</span> <span class="toc-text">内边距padding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9Dmargin"><span class="toc-number">4.11.</span> <span class="toc-text">外边距margin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%B1%85%E4%B8%AD"><span class="toc-number">4.12.</span> <span class="toc-text">内容居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0%E4%B8%8E%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E7%9A%84%E8%BD%AC%E6%8D%A2display"><span class="toc-number">4.13.</span> <span class="toc-text">内联元素与块级元素的转换display</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E5%AD%90%E7%9A%84%E9%9A%90%E8%97%8Fvisibility"><span class="toc-number">4.14.</span> <span class="toc-text">盒子的隐藏visibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9A%E8%BE%B9%E6%A1%86%E5%9B%BE%E5%83%8Fborder-image"><span class="toc-number">4.15.</span> <span class="toc-text">CSS3：边框图像border-image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9A%E7%9B%92%E5%AD%90%E7%9A%84%E9%98%B4%E5%BD%B1box-shadow"><span class="toc-number">4.16.</span> <span class="toc-text">CSS3：盒子的阴影box-shadow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9A%E5%9C%86%E8%A7%92border-radius"><span class="toc-number">4.17.</span> <span class="toc-text">CSS3：圆角border-radius</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9A%E6%A4%AD%E5%9C%86%E5%BD%A2border-radius"><span class="toc-number">4.18.</span> <span class="toc-text">CSS3：椭圆形border-radius</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E3%80%81%E8%A1%A8%E6%A0%BC%E5%92%8C%E8%A1%A8%E5%8D%95"><span class="toc-number">5.</span> <span class="toc-text">列表、表格和表单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%AC%A6%E5%8F%B7%E6%A0%B7%E5%BC%8Flist-style-type"><span class="toc-number">5.1.</span> <span class="toc-text">项目符号样式list-style-type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%9B%BE%E5%83%8Flist-style-image"><span class="toc-number">5.2.</span> <span class="toc-text">项目图像list-style-image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E7%9A%84%E5%AE%9A%E4%BD%8Dlist-style-position"><span class="toc-number">5.3.</span> <span class="toc-text">标记的定位list-style-position</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8Flist-style"><span class="toc-number">5.4.</span> <span class="toc-text">列表快捷方式list-style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E5%B1%9E%E6%80%A7"><span class="toc-number">5.5.</span> <span class="toc-text">表格属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E8%BE%B9%E6%A1%86empty-cells"><span class="toc-number">5.6.</span> <span class="toc-text">空单元格的边框empty-cells</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%A0%BC%E4%B9%8B%E9%97%B4%E7%9A%84%E7%A9%BA%E9%9A%99border-spacing%EF%BC%8Cborder-collapse"><span class="toc-number">5.7.</span> <span class="toc-text">单元格之间的空隙border-spacing，border-collapse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%8D%95%E8%A1%8C%E6%96%87%E6%9C%AC%E6%A1%86%E6%A0%B7%E5%BC%8F"><span class="toc-number">5.8.</span> <span class="toc-text">定义单行文本框样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%8F%90%E4%BA%A4%E6%8C%89%E9%92%AE%E6%A0%B7%E5%BC%8F"><span class="toc-number">5.9.</span> <span class="toc-text">定义提交按钮样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%87%E6%A0%B7%E5%BC%8Fcursor"><span class="toc-number">5.10.</span> <span class="toc-text">光标样式cursor</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%83%E5%B1%80"><span class="toc-number">6.</span> <span class="toc-text">布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E6%B5%81position-static"><span class="toc-number">6.1.</span> <span class="toc-text">普通流position:static</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8Dposition-relative"><span class="toc-number">6.2.</span> <span class="toc-text">相对定位position:relative</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8Dposition-fixed"><span class="toc-number">6.3.</span> <span class="toc-text">固定定位position:fixed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%8F%A0%E5%85%83%E7%B4%A0z-index"><span class="toc-number">6.4.</span> <span class="toc-text">重叠元素z-index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E5%85%83%E7%B4%A0float"><span class="toc-number">6.5.</span> <span class="toc-text">浮动元素float</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8clear"><span class="toc-number">6.6.</span> <span class="toc-text">清除浮动clear</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E6%B5%AE%E5%8A%A8%E5%88%9B%E5%BB%BA%E5%A4%9A%E5%88%97%E5%BC%8F%E5%B8%83%E5%B1%80"><span class="toc-number">6.7.</span> <span class="toc-text">利用浮动创建多列式布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%BD%E5%BA%A6%E5%B8%83%E5%B1%80%EF%BC%8C%E6%B5%81%E4%BD%93%E5%B8%83%E5%B1%80"><span class="toc-number">6.8.</span> <span class="toc-text">固定宽度布局，流体布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E6%A0%B7%E5%BC%8F%E8%A1%A8-import-link"><span class="toc-number">6.9.</span> <span class="toc-text">多个样式表@import,link</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F"><span class="toc-number">7.</span> <span class="toc-text">图像</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8CSS%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%9B%BE%E5%83%8F%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="toc-number">7.1.</span> <span class="toc-text">在CSS中控制图像的大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8CSS%E5%B0%86%E5%9B%BE%E5%83%8F%E5%AF%B9%E9%BD%90"><span class="toc-number">7.2.</span> <span class="toc-text">使用CSS将图像对齐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8CSS%E5%B0%86%E5%9B%BE%E5%83%8F%E5%B1%85%E4%B8%AD"><span class="toc-number">7.3.</span> <span class="toc-text">使用CSS将图像居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E5%83%8Fbackground-image"><span class="toc-number">7.4.</span> <span class="toc-text">背景图像background-image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D%E5%9B%BE%E5%83%8Fbackground-repeat-background-attachment"><span class="toc-number">7.5.</span> <span class="toc-text">重复图像background-repeat background-attachment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E5%83%8F%E7%9A%84%E5%AE%9A%E4%BD%8Dbackground-position"><span class="toc-number">7.6.</span> <span class="toc-text">背景图像的定位background-position</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%86%99background"><span class="toc-number">7.7.</span> <span class="toc-text">简写background</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%BD%AC%E4%B8%8E%E5%AD%90%E7%94%BB%E9%9D%A2"><span class="toc-number">7.8.</span> <span class="toc-text">图像翻转与子画面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%EF%BC%9A%E6%B8%90%E5%8F%98background-image"><span class="toc-number">7.9.</span> <span class="toc-text">CSS3：渐变background-image</span></a></li></ol></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

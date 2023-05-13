@@ -1,0 +1,10 @@
+{
+  "files": ["arknights.ts"],
+  "compilerOptions": {
+    "target": "es2021",
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "outFile": "../arknights.js"
+  }
+}

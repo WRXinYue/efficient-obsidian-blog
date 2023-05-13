@@ -1,0 +1,16 @@
+{
+  "dateFormat": "yyyy-MM-dd HH:mm:ss",
+  "readDateFormat": "yyyy-MM-dd'T'HH:mm:ssxxx",
+  "useDifferentReadFormat": false,
+  "enableCreateTime": false,
+  "headerUpdated": "updated",
+  "headerCreated": "data",
+  "minMinutesBetweenSaves": 1,
+  "ignoreGlobalFolder": [
+    "Template",
+    "Scripts"
+  ],
+  "ignoreCreatedFolder": [
+    "Templates"
+  ]
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BOM | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>BOM</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-08-14T18:52:43.000Z" id="date"> 2022-08-15</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-04-18T06:45:24.000Z" id="updated"> 2023-04-18</time></div></span></div></div><hr><div id="post-content"><ul>
+<li>BOM（Browser object Model）：浏览器对象模型</li>
+<li>其实就是操作浏览器的一些能力</li>
+<li>我们可以操作哪些内容<ul>
+<li>获取一些浏览器的相关信息（窗口的大小）</li>
+<li>操作浏览器进行页面跳转</li>
+<li>获取当前浏览器地址栏的信息</li>
+<li>浏览器的信息（浏览器的版本）</li>
+<li>让浏览器出现一个弹出框（alert&#x2F;confirm&#x2F;prompt）</li>
+<li>…</li>
+</ul>
+</li>
+<li>BOM的核心就是window对象</li>
+<li>window是浏览器内置的一个对象，里面包含着操作浏览器的方法</li>
+</ul>
+<h3 id="重要事件"><a href="#重要事件" class="headerlink" title="重要事件"></a>重要事件</h3><ul>
+<li><p>onresize</p>
+<p>宽口大小发生改变的时候触发。</p>
+</li>
+<li><p>onscroll</p>
+<p>页面滚动的时候触发，也可以用于某个元素节点上。</p>
+</li>
+<li><p>onfocus onblur</p>
+<p>进入页面和离开页面时触发，也可以用于其他能获得焦点的元素节点上。</p>
+</li>
+<li><p>打开与关闭窗口</p>
+<p>open() close()</p>
+</li>
+</ul>
+<h3 id="重要对象"><a href="#重要对象" class="headerlink" title="重要对象"></a>重要对象</h3><ul>
+<li><p>location</p>
+<p>获取&#x2F;设置 URL相关的属性。</p>
+</li>
+<li><p>history</p>
+<p>操作当前标签页的历史，类似于点击浏览器地址栏左侧的前进和后退按钮。</p>
+<p><code>history.go(number)</code> – 前进或后退指定的页面数。</p>
+<p><code>history.back()</code> – 后退一页。</p>
+<p><code>history.forward()</code> – 前进一页。</p>
+</li>
+<li><p>navigator</p>
+<p>获取浏览器相关的信息。</p>
+</li>
+<li><p>Screen</p>
+<p>获取用户显示屏幕的各种信息。</p>
+<p><code>.width .height</code> 获取显示器分辨率。</p>
+<p><code>.availWidth .availHeight</code> 获取除去任务栏的大小。</p>
+</li>
+</ul>
+<h2 id="各种尺寸获取"><a href="#各种尺寸获取" class="headerlink" title="各种尺寸获取"></a>各种尺寸获取</h2><h3 id="可视区宽高"><a href="#可视区宽高" class="headerlink" title="可视区宽高"></a>可视区宽高</h3><ul>
+<li><p>窗口宽高</p>
+<p><code>window.innerWidth window.innerHeight</code></p>
+<p>包含了滚动条的宽度和浏览器本身的边框宽度（低版本IE不支持）。</p>
+</li>
+<li><p>内容区宽高</p>
+<p><code>document.documentElement.clientWidth</code></p>
+<p><code>document.documentElement.clientHeight</code></p>
+<p>不包含滚动条等。</p>
+</li>
+</ul>
+<h3 id="元素的各种宽高"><a href="#元素的各种宽高" class="headerlink" title="元素的各种宽高"></a>元素的各种宽高</h3><ul>
+<li><p>client</p>
+<p><code>clientWidth clientHeight</code></p>
+<p>宽(高)+padding。</p>
+</li>
+<li><p>offset</p>
+<p><code>offsetWidth offssetHeight</code></p>
+<p>宽(高)+padding+border。</p>
+</li>
+<li><p>scroll</p>
+<p><code>scrollWidth / scrollHeigh</code></p>
+<p>内容的实际高度，当内容没超出相当于client，当内容超出之后，会得到包括超出内容的实际高度，即使加了超出隐藏，也还是会得到内容所占的实际高度。</p>
+</li>
+</ul>
+<h3 id="元素的各种距离"><a href="#元素的各种距离" class="headerlink" title="元素的各种距离"></a>元素的各种距离</h3><ul>
+<li><p>offset</p>
+<p><code>offsetLeft offsetTop</code></p>
+<p>获取左边（上边），到定位父级的左边（上边）的距离。</p>
+</li>
+<li><p><code>getBoundingClientRect</code></p>
+<p>返回一个对象，包含了元素各边到窗口的距离，返回的结构类似于：{top:100,left:20,bottom:500,right:890}。</p>
+</li>
+</ul>
+<h3 id="滚动距离"><a href="#滚动距离" class="headerlink" title="滚动距离"></a>滚动距离</h3><ul>
+<li><p>页面滚动宽高</p>
+<p><code>doucment.documentElement.scrollTop</code></p>
+<p><code>document.documentElement.scrollLeft</code></p>
+<p>页面的滚动宽（高）。此属性可以赋值，能让页面滚动到指定的位置。</p>
+<p>设置滚动距离也可以使用<code>window.scrollTo()</code>。</p>
+</li>
+<li><p>元素滚动宽高</p>
+<p><code>元素节点.scrollTop 元素节点.scrollLeft</code></p>
+</li>
+</ul>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/08/18/WebFrontend/JavaScript/js%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/">← Next js解构赋值</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/08/13/WebFrontend/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8/Hybrid%E6%8A%80%E6%9C%AF-Flutter%E4%BB%8B%E7%BB%8D/">Hybrid技术-Flutter介绍 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">重要事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">重要对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8%E8%8E%B7%E5%8F%96"><span class="toc-number"></span> <span class="toc-text">各种尺寸获取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%BA%E5%AE%BD%E9%AB%98"><span class="toc-number">1.</span> <span class="toc-text">可视区宽高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98"><span class="toc-number">2.</span> <span class="toc-text">元素的各种宽高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E8%B7%9D%E7%A6%BB"><span class="toc-number">3.</span> <span class="toc-text">元素的各种距离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%9A%E5%8A%A8%E8%B7%9D%E7%A6%BB"><span class="toc-number">4.</span> <span class="toc-text">滚动距离</span></a></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

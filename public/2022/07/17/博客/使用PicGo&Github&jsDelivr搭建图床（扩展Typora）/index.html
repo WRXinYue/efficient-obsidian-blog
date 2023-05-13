@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>使用PicGo+Github+jsDelivr搭建图床（扩展Typora） | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>使用PicGo+Github+jsDelivr搭建图床（扩展Typora）</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-07-17T12:26:50.000Z" id="date"> 2022-07-17</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2022-10-26T14:25:17.138Z" id="updated"> 2022-10-26</time></div></span></div></div><hr><div id="post-content"><h1>前言</h1>
+<p>本文内容包括：</p>
+<blockquote>
+<ul>
+<li>创建一个 github 仓库</li>
+<li>使用 jsDelivr 免费 CDN 加速图片访问速度</li>
+<li>创建 Token</li>
+<li>使用 PicGo 配置 github 图床</li>
+</ul>
+</blockquote>
+<p>众所周知网站图片是会影响云服务器性能，在我们这些小博客网站流量是非常有限的，为了避免网站性能降低我们除了压缩媒体文件还可以通过远程调用的方法，也就是用一个单独的云服务器存放媒体，如用一个专门的图床网站或者阿里云OSS对象存储之类的作为网站图床。</p>
+<p>什么是图床：</p>
+<blockquote>
+<p>图床一般是指储存图片的服务器，有国内和国外之分。国外的图床由于有空间距离等因素决定访问速度很慢影响图片显示速度。国内也分为单线空间、多线空间和cdn加速三种。</p>
+<p>图床就是专门用来存放图片，同时允许你把图片对外连接的网上空间，不少图床都是免费的。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/021357282173530.jpg" alt="img" /></p>
+<h2>使用PicGo+GitHub+jsDelivr搭建图床</h2>
+<h3>配置Github</h3>
+<ol>
+<li>登陆github账号创建新的仓库</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717192813938.png" alt="image-20220717192813938" /></p>
+<ol start="2">
+<li>填写仓库属性</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717193516646.png" alt="image-20220717193516646" /></p>
+<ol start="3">
+<li>
+<p>点击头像-Settings-Developer settings-Personal access tokens-Generate new token
+<img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717193812726.png" alt="image-20220717193812726" /><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717194039681.png" alt="image-20220717194039681" style="zoom: 50%;" /><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717194216180.png" alt="image-20220717194216180" /><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717194452344.png" alt="image-20220717194452344" /></p>
+</li>
+<li>
+<p>填写内容
+<img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717194816210.png" alt="image-20220717194816210" /></p>
+</li>
+<li>
+<p>复制token
+<img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717195046107.png" alt="image-20220717195046107" /></p>
+</li>
+</ol>
+<h3>配置PicGo</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">PicGo官方下载链接</a>
+<img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717195901602.png" alt="image-20220717195901602" /></p>
+<ul>
+<li>仓库名即为你的github账号/图片仓库名</li>
+<li>分支名我在这里使用master</li>
+<li>Token 就填写刚才我们生成的 Token</li>
+<li>存储路径如果需要指定子目录可以填写例如 img/  如果没有填，就会上传到图片仓库的根目录。</li>
+<li>自定义域名就填写 jsDelivr 的域名，即图片访问地址，不包括图片路径的前半部分，</li>
+<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/用户名/仓库名">https://cdn.jsdelivr.net/gh/用户名/仓库名</a></li>
+<li>最后设为默认图床，下次在 typora 上传图片就会自动上传到 github 图床了。</li>
+</ul>
+<h2>扩展</h2>
+<p>图片粘贴到Typora后，自动把图片上传到配置好的图床上</p>
+<h3>配置Typora</h3>
+<p>文件-偏好设置-图像</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220717201003688.png" alt="image-20220717201003688" /></p><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/07/21/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Unity/%E9%BB%91%E9%AD%82%E5%A4%8D%E5%88%BB%E7%AC%AC%E4%B8%80%E5%AD%A3%EF%BC%88%E5%82%85%E8%80%81%E5%B8%88%EF%BC%89/">← Next 黑魂复刻第一季（傅老师）</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/07/13/WebBackend/C#/C#/">C# Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">使用PicGo+GitHub+jsDelivr搭建图床</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">配置Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text">配置PicGo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置Typora</span></a></li></ol></li></ol></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

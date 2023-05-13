@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>数据库基本概念 | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>数据库基本概念</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-11-25T09:54:34.115Z" id="date"> 2022-11-25</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-05-08T06:10:39.000Z" id="updated"> 2023-05-08</time></div></span></div></div><hr><div id="post-content"><h1 id="数据库基本概念"><a href="#数据库基本概念" class="headerlink" title="数据库基本概念"></a>数据库基本概念</h1><p> (SQL，索引视图，事务，日志等)</p>
+<h2 id="数据库是什么"><a href="#数据库是什么" class="headerlink" title="数据库是什么"></a>数据库是什么</h2><ul>
+<li>信息、数据与数据处理</li>
+<li>应用程序和操作系统承上启下的作用</li>
+<li>数据库（DB，Data Base）</li>
+<li>数据库管理系统（DBMS，Data Base Management System）</li>
+<li>数据库系统（DBS，Data Base System）</li>
+</ul>
+<img src="https://wrxinyue.oss-cn-hongkong.aliyuncs.com/img/image-20221125163819158.png" alt="image-20221125163819158" style="zoom:50%;" />
+
+<h3 id="数据库与数据库实例的概念"><a href="#数据库与数据库实例的概念" class="headerlink" title="数据库与数据库实例的概念"></a>数据库与数据库实例的概念</h3><p><strong>数据库：</strong><br>物理操作系统或其他形式文件类型的集合。在Oracle数据库是dbf、日志文件、密码文件等文件构成；在MySQL下数据库文件可以是frm、myd、myi、ibd结尾的文件。</p>
+<p><strong>数据库实例：</strong><br>由数据库后台进程&#x2F;线程以及一个共享内存区组成。Oracle是多进程程序；MySQL数据库是单进程多线程的程序，单进程多线程的特性决定MySQL是轻量级数据库（并发连接性能受限）。</p>
+<h2 id="SQL基础概念"><a href="#SQL基础概念" class="headerlink" title="SQL基础概念"></a>SQL基础概念</h2><ul>
+<li><p>Structured Query Language : 结构化查询语言,是一种特殊目的的编程语言,是<strong>一种数据库查</strong><br><strong>询和程序设计语言,用于存取数据以及查询、更新和管理关系数据库系统</strong>。</p>
+</li>
+<li><p>结构化查询语言是**高级的非过程化编程语言,**允许用户在高层数据结构上工作。它不要求用户指<br>定对数据的存放方法,也不需要用户了解具体的数据存放方式,所以具有完全不同底层结构的不<br>同数据库系统可以使用相同的结构化查询语言作为数据输入与管理的接口。结构化查询语言语句<br>可以嵌套,这使它具有极大的灵活性和强大的功能。</p>
+</li>
+<li><p>SQL语言1974年由Boyce和Chamberlin提出,并首先在IBM公司研制的关系数据库系统SystemR<br>上实现。由于它具有功能丰富、使用方便灵活、语言简洁易学等突出的优点,深受计算机工业界<br>和计算机用户的欢迎。1980年10月,经美国国家标准局(ANSI)的数据库委员会X3H2批准,将<br>SQL作为关系数据库语言的美国标准,同年公布了标准SQL,此后不久,国际标准化组织(ISO)也<br>作出了同样的决定。</p>
+</li>
+</ul>
+<h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p><strong>SQL 6大类：</strong></p>
+<ul>
+<li>数据查询语言( DQL: Data Query Language) : 其语句,也称为“数据检索语句”, 用以从表中获得数据,确<br>定数据怎样在应用程序给出。保留字SELECT是DQL (也是所有SQL )用得最多的动词,其他DQL常用的保留字<br>有WHERE , ORDER BY , GROUP BY和HAVING。 这些DQL保留字常与其它类型的SQL语句一起使用。</li>
+<li>数据操作语言( DML : Data Manipulation Language ) : 其语句包括动词INSERT、UPDATE和DELETE。 它们<br>分别用于添加、修改和删除。</li>
+<li>事务控制语言( TCL) : 它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT (提交)命<br>令、SAVEPOINT (保存点)命令、ROLLBACK (回滚)命令。</li>
+<li>数据控制语言( DCL ) :它的语句通过GRANT或REVOKE实现权限控制,确定单个用户和用户组对数据库对象的<br>访问。某些RDBMS可用GRANT或REVOKE控制对表单个列的访问。</li>
+<li>数据定义语言(DDL) :其语句包括动词CREATE,ALTER和DROP。在数据库中创建新表或修改、删除表<br>( CREATE TABLE或DROP TABLE) ; 为表加入索引等。</li>
+<li>指针控制语言( CCL) :它的语句,像DECLARE CURSOR , FETCH INTO和UPDATE WHERE CURRENT用于对<br>一个或多个表单独行的操作。</li>
+</ul>
+<p><strong>SQL的特点：</strong></p>
+<ul>
+<li><p>SQL风格统一<br>SQL可以独立完成数据库生命周期中的全部活动,包括定义关系模式、录入数据、建立数据库、查询、更新、维护、<br>数据库重构、数据库安全性控制等一系列操作 ,这就为数据库应用系统开发提供了良好的环境,在数据库投入运行<br>后,还可根据需要随时逐步修改模式,且不影响数据库的运行,从而使系统具有良好的可扩充性。</p>
+</li>
+<li><p>高度非过程化<br>非关系数据模型的数据操纵语言是面向过程的语言,用其完成用户请求时,必须指定存取路径。而用SQL进行数据<br>操作,用户只需提出“做什么”, 而不必指明”怎么做”, 因此用户无须了解存取路径,存取路径的选择以及SQL语句的操作过程由系统自动完成。这不但大大减轻了用户负担,而且有利于提高数据独立性。</p>
+</li>
+<li><p>面向集合的操作方式<br>SQL采用集合操作方式,不仅查找结果可以是元组的集合,而且一次插入、删除、更新操作的对象也可以是元组的集合</p>
+</li>
+<li><p>以同一种语法结构提供两种使用方式<br>SQL既是自含式语言,又是嵌入式语言。作为自含式语言,它能够独立地用于联机交互的使用方式,用户可以在终端键盘上直接输入SQL命令对数据库进行操作。作为嵌入式语言, SQL语句能够嵌入到高级语言(如C、C#、 JAVA)程序中,供程序员设计程序时使用。而在两种不同的使用方式下, SQL的语法结构基本上是一致的。这种以统一的语法结构提供两种不同的操作方式,为用户提供了极大的灵活性与方便性。</p>
+</li>
+<li><p>语言简洁,易学易用<br>SQL功能极强,但由于设计巧妙,语言十分简洁,完成数据定义、数据操纵、数据控制的核心功能只用了9个动词:<br>CREATE、ALTER、 DROP、SELECT、 INSERT、 UPDATE、 DELETE、 GRANT、REVOKE。 且SQL语言语法简<br>单，接近英语口语,因此容易学习,也容易使用。</p>
+</li>
+</ul>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
+<li>概念<br>索引是对数据库表中一列或多列的值进行排序的一种结构 ,使用索引可快速访问数据库表中的特定信息。<br><img src="https://wrxinyue.oss-cn-hongkong.aliyuncs.com/img/image-20221125171327836.png" alt="image-20221125171327836"></li>
+<li>索弓|的创建和使用举例 :<br>如果在查询时常用类似以下的语句:<br><code>SELECT * FROM mytable WHERE category_id=1;</code><br>最直接的应对之道,是为category_ id建立一个简单的索引 :<br><code>CREATE INDEX mytable_categoryid ON mytable (category_id);</code></li>
+</ul>
+<p><strong>索引种类：</strong></p>
+<ul>
+<li>唯一索引:UNIQUE<br>例如在学生表中给学号字段创建唯一索引: <code>create unique index stusno on student (sno) ;</code><br>表明此索弓的每一个索引值只对应唯一的数据记录,对于单列唯一性索引,这保证单列不包含重复的值。<br>对于多了唯一-性索引,保证多列值得组合不重复</li>
+<li>主键索引primary key即唯一 +非空<br>数据库关系图中在给表定义主键将自动创建主键索引,该索弓|要求主键中的每个值都唯一且非空。</li>
+<li>聚集索引(又叫聚簇索引) : cluster<br>聚簇索引并不是一种单独的索引类型,而是一种<strong>数据存储方式</strong>。在InnoDB中,表数据文件本身就是按<br>B+Tree组织的一个索引结构,这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表<br>的主键,因此InnoDB表数据文件本身就是主索引。</li>
+</ul>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
+<li><p>视图是指计算机数据库中的视图,<strong>是一个虚拟表</strong>,其内容由查询定义。同真实的表一样,视图包含一系列带有名称的列和行数据。但是,视图并不在数据库中以存储的数据值集形式存在。行和列数据来自由定义视图的查询所引用的表,并且在引用视图时动态生成。</p>
+</li>
+<li><p>创建一个简单视图<code>V_ EMP_10</code> ,来显示部门10中的员工的编码、姓名和薪水: </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">VIEW</span> v_emp_10<br><span class="hljs-keyword">AS</span><br><span class="hljs-keyword">SELECT</span> emono,ename,sal,deptno<br><span class="hljs-keyword">FROM</span> emp<br><span class="hljs-keyword">WHERE</span> deptno <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="事物"><a href="#事物" class="headerlink" title="事物"></a>事物</h3><p><strong>概念：</strong><br>在关系数据库中, 一个事务可以是一条SQL语句 , 一组SQL语句或整个程序。指访问并可能更新数据库中各的数据项的一个程序执行单元(unit)</p>
+<p><strong>特性：</strong><br><em>事务是恢复和并发控制的基本单位</em>。事务应该具有4个属性:原子性、一致性、隔离性、持久性。这四个属性通常称为ACID特性。</p>
+<ul>
+<li>原子性( atomicity )。一个事务是一个不可分割的工作单位,事务中包括的操作要么都做,要么都不做。</li>
+<li>一致性( consistency)。事务必须是使数据库从一个一致性状态变到另一个一致性状态。一致性与原子性是密切相关的。</li>
+<li>隔离性( isolation)。一个事务的执行不能被其他事务干扰。即一个事务内部的操作及使用的数据对并发的其他事务是隔的,并发执行的各个事务之间不能互相干扰。</li>
+<li>持久性( durability )。持久性也称永久性( permanence) , 指一个事务一旦提交 ,它对数据库中数据的改变就应该是永久性<br>的。接下来的其他操作或故障不应该对其有任何影响。</li>
+</ul>
+<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><ul>
+<li>现在的数据库系统( Oracel、DB2、 MS SQL、MySQL等)都支持多用户,所有的数据库系统(包括Exchange ) , 都是把数据先写到日志中,等某个时机(比如:确认commit )后再写到数据库记录中,日志是数据库最重要的数据之一</li>
+<li>数据库都具有事务日志,用于记录所有事务以及每个事务对数据库所做的修改。事务日志是数据库的重要组件,如果系统出现故障,则可能需要使用事务日志将数据库恢复到一致状态。</li>
+</ul>
+<p><strong>MySQL中有六种日志文件,分别是:</strong></p>
+<ul>
+<li>重做日志(redolog)</li>
+<li>回滚日志(undolog)</li>
+<li>二进制日志( binlog )</li>
+<li>错误日志( errorlog )</li>
+<li>慢查询日志( slow query log )</li>
+<li>一般查询日志( general log )</li>
+<li>中继日志( relay log )</li>
+</ul>
+<p>其中重做日志和回滚日志与事务操作息息相关,二进制日志也与事务操作有一定的关系,这三种日志,对理解MySQL中的事务操作有着重要的意义。</p>
+<p><strong>MySQL重做日志</strong></p>
+<ul>
+<li>作用:<br>确保事务的持久性。redo日志记录事务执行后的状态,用来恢复未写入data file的已成功事务更新的数据。防止在发生故障的时间点,尚有脏页未写入磁盘,在重启MySQL服务的时候,根据redo log进行重做,从而达到事务的持久性这一特性。</li>
+<li>内容:<br>物理格式的日志,记录的是物理数据页面的修改的信息,其redo log是顺序写入redo log file的物理文件中去的。</li>
+<li>什么时候产生:<br>事务开始之后就产生redo log , redo log的落盘并不是随着事务的提交才写入的,而是在事务的执行过程中,便开<br>始写入redo log文件中。</li>
+<li>什么时候释放:<br>当对应事务的脏页写入到磁盘之后, redo log的使命也就完成了,重做日志占用的空间就可以重用(被覆盖)。</li>
+</ul>
+<p><strong>MySQL回滚日志</strong></p>
+<ul>
+<li>作用:<br>保证数据的原子性,保存了事务发生之前的数据的一个版本，可以用于回滚,同时可以提供多版本并发控制下的读( MVCC) , 也即非锁定读</li>
+<li>内容:<br>逻辑格式的日志,在执行undo的时候,仅仅是将数据从逻辑上恢复至事务之前的状态,而不是从物理页面上操作实现的,这一点是不同于redo log的。</li>
+<li>什么时候产生:<br>事务开始之前,将当前是的版本生成undo log , undo也会产生redo来保证undo log的可靠性</li>
+<li>什么时候释放:<br>当事务提交之后, undo log并不能立马被删除,而是放入待清理的链表,由purge线程判断是否由其他事务在使用undo段中表的.上一个事务之前的版本信息,决定是否可以清理undo log的日志空间。</li>
+</ul>
+<p><strong>MySQL二进制日志</strong></p>
+<ul>
+<li>作用:<br>用于复制,在主从复制中,从库利用主库上的binlog进行重播,实现主从同步。用于数据库的基于时间点的还原。</li>
+<li>内容:<br>逻辑格式的日志,可以简单认为就是执行过的事务中的sq|语句。不光SQL语句本身,而是包括了执行的SQL语句<br>(增删改)反向的信息,也就意味着delete对应着delete本身和其反向的insert ; update对应着update执行前后<br>的版本的信息; insert对应着delete和insert本身的信息。</li>
+<li>什么时候产生:<br>事务提交的时候, 一次性将事务中的SQL语句( 一个事物可能对应多个sql语句)按照一定的格式记录到binlog中。<br>这里与redo log很明显的差异就是redo log并不一定是在事务提交的时候刷新到磁盘 , redo log是在事务开始之<br>后就开始逐步写入磁盘。<br>因此对于事务的提交,即便是较大的事务,提交( commit )都是很快的,但是在开启了binlog的情况下,对于较<br>大事务的提交,可能会变得比较慢一些。</li>
+<li>什么时候释放:<br>binlog的默认是保持时间由参数expire_ logs_days配置,也就是说对于非活动的日志文件,在生成时间超过<br>expire_ logs_days配置的天数之后,会被自动删除。</li>
+</ul>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/11/28/WebBackend/Java/Java%20collections%20(%E9%9B%86%E5%90%88)/">← Next Java collections (集合)</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/11/25/%E9%98%BF%E9%87%8C%E4%BA%91/ACA/%E4%BB%8E%E4%BC%A0%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B0%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%BC%94%E8%BF%9B/">从传统数据库到云数据库演进 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">数据库基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">数据库是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E4%BE%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">数据库与数据库实例的概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">SQL基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL"><span class="toc-number">1.2.1.</span> <span class="toc-text">SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-number">1.2.3.</span> <span class="toc-text">视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E7%89%A9"><span class="toc-number">1.2.4.</span> <span class="toc-text">事物</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">1.2.5.</span> <span class="toc-text">日志</span></a></li></ol></li></ol></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

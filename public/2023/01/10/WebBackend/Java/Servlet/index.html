@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Servlet | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>Servlet</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2023-01-09T23:58:16.916Z" id="date"> 2023-01-10</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-04-18T07:09:37.000Z" id="updated"> 2023-04-18</time></div></span></div></div><hr><div id="post-content"><h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><ul>
+<li>Servlet是一种基于组件的技术，它可以在多种Web服务器上运行，并且独立于平台。</li>
+<li>Servlet可以访问整个Java API系列，包括JDBC用于访问企业数据库。</li>
+<li>Servlet可以通过表单从用户那里收集输入，显示来自数据库或其他来源的记录，并动态创建网页。</li>
+<li>Servlet通常认为是CGI程序的高效替代品。Servlet相比CGI有很多种优点，如更高的性能。</li>
+<li>Servlet 是平台无关的，因为它们是用 Java 编写的。</li>
+<li>Java安全管理器强制执行限制以保护服务器资源，可以使用Java类库全部功能（依赖于容器和服务器支持的功能）。</li>
+<li>Servlet需要运行在Servlet容器（如 Tomcat）上，然后才能在Web服务器上工作。</li>
+</ul>
+<p><img src="https://wrxinyue.oss-cn-hongkong.aliyuncs.com/img/image-20230110201204891.png" alt="image-20230110201204891"></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Java Servlet是由支持Java Servlet规范的解释器（通常是Web容器）在服务器端运行的Java类。这些类可以使用 <code>javax.servlet</code> 和 <code>javax.servlet.http</code>包中的类来创建，这些包是Java企业版标准部分，可以支持大型开发项目。</p>
+<p>Servlet的创建和编译基本上就像其他Java类一样，需要将Servlet包安装并添加到类路径中，然后可以使用JDK的Java编译器或其他编译器来编译Servlet。</p>
+<p>但是一般会使用一些构建工具来管理依赖，打包和发布项目。这样可以更加便捷的管理项目，常见构建工具有：Apache Maven、Gradle、Apache Ant</p>
+<p>本次使用环境：</p>
+<ul>
+<li>Java开发工具包（SDK）</li>
+<li>Web服务器 - Tomcat</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ul>
+<li><strong>处理和相应HTTP请求</strong>：Servlet通过实现HTTP协议相关的方法来响应客户端的请求，如get或post。</li>
+<li><strong>维护状态信息</strong>：Servlet可以在会话期间维护状态信息，这在跨请求的操作中很有用，例如在网上购物车中存储物品。</li>
+<li><strong>数据库交互</strong>：Servlet通过JDBC或其他数据库访问技术来访问数据库并执行查询和更新操作。</li>
+<li><strong>生成动态内容</strong>：Servlet可以根据请求内容动态生成HTML、XML或其他格式的文档。</li>
+<li><strong>访问远程组件</strong>：Servlet可以通过RMI或SOAP等协议访问远程组件。</li>
+</ul>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Servlet的生命周期可以定义为从创建到销毁的整个过程。在这个过程中，Servlet容器会调用Servlet的三个生命周期方法：<code>init()</code>、<code>service()</code>和<code>destroy()</code>。</p>
+<h3 id="init"><a href="#init" class="headerlink" title="init()"></a>init()</h3><p>Servlet的生命周期中有一个可选的方法叫做<code>init()</code>,它通常在Servlet第一次被请求时被调用一次。它可以用于进行一些初始化工作，如加载配置文件、建立数据库连接等。</p>
+<p>常见<code>init()</code>方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> ServletException &#123;<br>    <span class="hljs-comment">// initialization code</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>带<strong>ServletConfig</strong> 参数的<code>init()</code>方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">(ServletConfig config)</span> <span class="hljs-keyword">throws</span> ServletException &#123;<br>    <span class="hljs-comment">// initialization code</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="service"><a href="#service" class="headerlink" title="service()"></a>service()</h3><p>Servlet的生命周期中<code>service()</code>方法是执行实际任务的主要方法。当客户端（浏览器）发送请求到Servlet时，Servlet容器（即Web服务器）会生成一个新线程并调用<code>service()</code>方法来处理请求。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">service</span><span class="hljs-params">(ServletRequest request, ServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>   <span class="hljs-comment">// Service Code</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="doGet"><a href="#doGet" class="headerlink" title="doGet()"></a>doGet()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>   <span class="hljs-comment">// Servlet code</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="doPost"><a href="#doPost" class="headerlink" title="doPost()"></a>doPost()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>   <span class="hljs-comment">// Servlet code</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy()"></a>destroy()</h3><p>Servlet生命周期结束时会调用一次<code>destroy()</code>方法。它可以进行关闭数据库连接、停止后台线程等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">destroy</span><span class="hljs-params">()</span> &#123;<br>   <span class="hljs-comment">// Finalization code...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考学习"><a href="#参考学习" class="headerlink" title="参考学习"></a>参考学习</h2><p><a target="_blank" rel="noopener" href="https://www.jc2182.com/servlet/servlet-jiaocheng.html">Servlet - 教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1304265949708322">Servlet入门 - 廖雪峰的官方网站</a></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/01/11/WebBackend/Java/Spring%E7%A0%94%E7%A9%B6/">← Next Spring</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/01/09/%E5%8D%9A%E5%AE%A2/hugo&amp;github&amp;vercel%E5%AF%BC%E8%88%AA%E6%90%AD%E5%BB%BA/">hugo+github+vercel导航搭建 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">4.</span> <span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#init"><span class="toc-number">4.1.</span> <span class="toc-text">init()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#service"><span class="toc-number">4.2.</span> <span class="toc-text">service()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#doGet"><span class="toc-number">4.2.1.</span> <span class="toc-text">doGet()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#doPost"><span class="toc-number">4.2.2.</span> <span class="toc-text">doPost()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#destroy"><span class="toc-number">4.3.</span> <span class="toc-text">destroy()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E5%AD%A6%E4%B9%A0"><span class="toc-number">5.</span> <span class="toc-text">参考学习</span></a></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

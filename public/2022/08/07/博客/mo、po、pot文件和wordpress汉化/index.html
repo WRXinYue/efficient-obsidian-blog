@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>.mo、po、.pot文件和wordpress汉化 | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>.mo、po、.pot文件和wordpress汉化</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-08-07T10:24:44.000Z" id="date"> 2022-08-07</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-04-18T10:02:50.000Z" id="updated"> 2023-04-18</time></div></span></div></div><hr><div id="post-content"><h2 id="mo、po、和-pot文件介绍"><a href="#mo、po、和-pot文件介绍" class="headerlink" title=".mo、po、和.pot文件介绍"></a>.mo、po、和.pot文件介绍</h2><blockquote>
+<p>MO文件：MO，即机器对象，是一个二进制数据文件，包含了程序所引用的对象数据。它通常被用来翻译程序代码，并可以被加载或导入GNU gettext程序中。</p>
+<p>PO文件：PO文件是包含实际翻译的文件。每种语言都会有自己的PO文件，例如，中文会有zh_CN文件，法语会有fr.po文件，德语会有de.po，美式英语可能有en_US.po。</p>
+<p>POT文件：POT文件是PO文件的模板文件。它们会把所有的翻译字符串留空。一个POT文件本质上是一个没有翻译的空PO文件，只有原始字符串。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220807172654931.png" alt="image-20220807172654931"></p>
+<h2 id="wordpress的汉化机制"><a href="#wordpress的汉化机制" class="headerlink" title="wordpress的汉化机制"></a>wordpress的汉化机制</h2><ol>
+<li><p>在php文件中，需要汉化的地方使用__()或_e()函数进行标识；</p>
+<p>​	_()函数<strong>返回</strong>翻译后的字符串，而<code>__e()</code>函数<strong>打印</strong>出翻译后的字符串。其实<code>__e()</code>就相当于echo __()。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220807182117393.png" alt="image-20220807182117393"></p>
+</li>
+<li><p>创建.po文件，进行翻译；</p>
+</li>
+<li><p>将.po文件编译成.mo文件；</p>
+</li>
+<li><p>向主题中加载.mo文件。</p>
+</li>
+</ol>
+<h2 id="poedit的使用方法："><a href="#poedit的使用方法：" class="headerlink" title="poedit的使用方法："></a>poedit的使用方法：</h2><p>打开我们的<code>zh_CN.po</code>文件，然后点击翻译-从源代码更新，就可以获取到我们要翻译的单词</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220807181803921.png" alt="image-20220807181803921"></p>
+<p>保存之后替换即可</p>
+<p>翻译之前：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220807181337697.png" alt="image-20220807181337697"></p>
+<p>翻译之后：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WRXinYue/PictureCDN/img/image-20220807181456376.png" alt="image-20220807181456376"></p>
+<h1 id="后语："><a href="#后语：" class="headerlink" title="后语："></a>后语：</h1><h2 id="什么是GNU-gettext？"><a href="#什么是GNU-gettext？" class="headerlink" title="什么是GNU gettext？"></a>什么是GNU gettext？</h2><p><a target="_blank" rel="noopener" href="https://www.gnu.org/software/gettext/">GNU gettext</a> 是使用最广泛的自由软件国际化工具之一</p>
+<p>GNU gettext 工具（msgfmt、xgettext 等）的 Windows 构建，由 Poedit 开发人员维护。</p>
+<p>该函数通常具有 _() 别名，以使代码更简单易读。</p>
+<p>此外，它提供了 pgettext() 调用，可用于为翻译者提供更多的上下文；还提供了 ngettext()，可以处理目标语言定义的复数类型。</p>
+<p>作为广泛传播的工具，它具有很多封装，使其使用相当简单，你也许会想尝试其中之一，例如 <a target="_blank" rel="noopener" href="https://freedesktop.org/wiki/Software/intltool/">intltool</a>，而非下面描述的对 gettext 的手动调用。</p>
+<h2 id="关于Poedit"><a href="#关于Poedit" class="headerlink" title="关于Poedit"></a>关于<a target="_blank" rel="noopener" href="https://poedit.net/">Poedit</a></h2><blockquote>
+<p>Poedit是一个免费增值软件及跨平台的gettext类国际化翻译编辑器，也是同类型软件中最广泛使用的一个。现时它不论在Unix+GTK 或 Windows平台 配合wxWidgets 均有相关版本。</p>
+</blockquote>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a target="_blank" rel="noopener" href="https://wordpress.stackexchange.com/questions/227822/what-is-the-difference-between-the-po-mo-and-pot-localization-files">https://wordpress.stackexchange.com/questions/227822/what-is-the-difference-between-the-po-mo-and-pot-localization-files</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.daimajiaoliu.com/daima/6cc27ed6f166400">https://www.daimajiaoliu.com/daima/6cc27ed6f166400</a></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/08/09/WebFrontend/JavaScript/js%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">← Next js基础语法</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/08/05/WebFrontend/UI/BootStrap/">BootStrap Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mo%E3%80%81po%E3%80%81%E5%92%8C-pot%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">.mo、po、和.pot文件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wordpress%E7%9A%84%E6%B1%89%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="toc-number">2.</span> <span class="toc-text">wordpress的汉化机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#poedit%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">poedit的使用方法：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AF%AD%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">后语：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFGNU-gettext%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是GNU gettext？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EPoedit"><span class="toc-number">2.</span> <span class="toc-text">关于Poedit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">参考：</span></a></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

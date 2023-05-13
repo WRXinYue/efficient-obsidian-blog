@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Linux备忘录 | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>Linux备忘录</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2022-10-17T15:59:52.000Z" id="date"> 2022-10-17</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-05-10T14:48:45.000Z" id="updated"> 2023-05-10</time></div></span></div></div><hr><div id="post-content"><h3 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell">-bash: ar: command not found<br><span class="hljs-meta prompt_"> </span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Debian</span><br>apt-get install binutils-aarch64-linux-gnu<br><span class="hljs-meta prompt_"> </span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Ubuntu</span><br>apt-get install binutils-aarch64-linux-gnu<br><span class="hljs-meta prompt_"> </span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Arch Linux</span><br>pacman -S binutils-aarch64-linux-gnu<br><span class="hljs-meta prompt_"> </span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Kali Linux</span><br>apt-get install binutils-aarch64-linux-gnu<br><span class="hljs-meta prompt_"> </span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">CentOS</span><br>yum install binutils-aarch64-linux-gnu<br><span class="hljs-meta prompt_"> </span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Fedora</span><br>dnf install binutils-aarch64-linux-gnu<br><span class="hljs-meta prompt_"> </span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">Raspbian</span><br>apt-get install binutils-aarch64-linux-gnu<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="VI编辑器"><a href="#VI编辑器" class="headerlink" title="VI编辑器"></a>VI编辑器</h2><p>vi保存命令。</p>
+<blockquote>
+<p>按ESC键 跳到命令模式，然后：</p>
+<p>:w 保存文件但不退出vi</p>
+<p>:w file 将修改另外保存到file中，不退出vi</p>
+<p>:w! 强制保存，不推出vi</p>
+<p>:wq 保存文件并退出vi</p>
+<p>:wq! 强制保存文件，并退出vi</p>
+<p>q: 不保存文件，退出vi</p>
+<p>:q! 不保存文件，强制退出vi</p>
+<p>:e! 放弃所有修改，从上次保存文件开始再编辑。</p>
+</blockquote>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -fsSL https://get.docker.com -o get-docker.sh  <br>sudo sh get-docker.sh<br></code></pre></td></tr></table></figure>
+
+<p><strong>查看发行版和版本</strong>：</p>
+<ul>
+<li><code>cat /etc/os-release</code></li>
+<li><code>cat /etc/*-release</code></li>
+</ul>
+<ol start="2">
+<li><strong>查看内核版本和系统架构</strong>：<ul>
+<li><code>uname -a</code> (全部信息)</li>
+<li><code>uname -r</code> (内核版本)</li>
+<li><code>uname -m</code> (系统架构)</li>
+</ul>
+</li>
+<li><strong>查看系统详细信息</strong>：<ul>
+<li><code>lsb_release -a</code> (可能需安装)</li>
+</ul>
+</li>
+<li><strong>查看硬件信息</strong>：<ul>
+<li><code>sudo lshw -short</code> (可能需安装)</li>
+</ul>
+</li>
+</ol>
+<h2 id="查看正在运行的容器"><a href="#查看正在运行的容器" class="headerlink" title="查看正在运行的容器"></a>查看正在运行的容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker ps<br></code></pre></td></tr></table></figure>
+
+<p>包括停止的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker ps -a<br></code></pre></td></tr></table></figure>
+
+<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it 容器ID /bin/bash<br></code></pre></td></tr></table></figure>
+
+<p><strong>alpine:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it 容器ID /bin/sh<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注：docker attach指令已经过时</p>
+</blockquote>
+<h2 id="Mysql-of-Dokcer"><a href="#Mysql-of-Dokcer" class="headerlink" title="Mysql of Dokcer"></a>Mysql of Dokcer</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -p 3306:3306 --name mysql \<br>-v /mydata/mysql/log:/vat/log/mysql \<br>-v /mydata/mysql/data:/var/lib/mysql \<br>-v /mydata/mysql/conf:/etc/mysql/conf.d \<br>-e MYSQL_ROOT_PASSWORD=root \<br>-d mysql:5.7<br></code></pre></td></tr></table></figure>
+<h3 id="Mysql-配置文件"><a href="#Mysql-配置文件" class="headerlink" title="Mysql 配置文件"></a>Mysql 配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">[clinet]<br>default-character-set=utf8<br>  <br>[mysql]<br>default-character-set=utf8<br><br>[mysqld]<br>init_connect=&#x27;SET collation_connection = utf8_unicode_ci&#x27;<br>init_connect=&#x27;SET NAMES utf8&#x27;<br>character-set-server=utf8<br>collation-server=utf8_unicode_ci<br>skip-character-set-client-handshake<br>skip-name-resolvnet<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="Redis-of-Docker"><a href="#Redis-of-Docker" class="headerlink" title="Redis of Docker"></a>Redis of Docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir -p /mydata/redis/conf &amp;&amp; touch /mydata/redis/confredis.conf<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -p 6379:6379 --name redis -v /mydata/redis/data:/data \<br>-v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf \<br>-d redis redis-server /etc/redis/redis.conf<br></code></pre></td></tr></table></figure><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/11/03/WebBackend/Java/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">← Next Java面向对象</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/10/17/WebFrontend/JavaScript/Promise%E7%AC%94%E8%AE%B0/">Promise 笔记 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">安装命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VI%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">VI编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker"><span class="toc-number"></span> <span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">查看正在运行的容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">进入容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysql-of-Dokcer"><span class="toc-number"></span> <span class="toc-text">Mysql of Dokcer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mysql-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">Mysql 配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis"><span class="toc-number"></span> <span class="toc-text">Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-of-Docker"><span class="toc-number">1.</span> <span class="toc-text">Redis of Docker</span></a></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

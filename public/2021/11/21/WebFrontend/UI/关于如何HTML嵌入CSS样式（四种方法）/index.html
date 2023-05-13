@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>关于如何HTML嵌入CSS样式（四种方法） | WRXinYue's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>关于如何HTML嵌入CSS样式（四种方法）</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2021-11-21T13:27:35.000Z" id="date"> 2021-11-21</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-04-18T07:05:31.000Z" id="updated"> 2023-04-18</time></div></span></div></div><hr><div id="post-content"><h2>前言</h2>
+<p>在写网页时，明明自己会学css，但是不会使用，我在网上整理了一些关于HTML嵌入CSS样式的学习资料，该资料仅供自己和大家作为参考。</p>
+<p>HTML嵌入CSS样式大致有四种方法；</p>
+<ul>
+<li>
+<p>行内样式：使用 HTML 标签的 style 属性定义 CSS 样式；</p>
+</li>
+<li>
+<p>内嵌样式：使用 <code>&lt;style&gt;</code> 标签在 HTML 文档头部（<code>&lt;head&gt;</code> 和 <code>&lt;head&gt;</code> 之间）定义 CSS 样式；</p>
+</li>
+<li>
+<p>链接式：使用 <code>&lt;link&gt;</code> 标签引入外部 CSS 样式表文件。</p>
+</li>
+<li>
+<p>导入式：使用 <code>@import</code> 命令导入外部 CSS 样式表文件。</p>
+</li>
+</ul>
+<p>第1种和第2种方法都是将 CSS 样式写到当前 HTML 文档里面，而第3种和第4种方法都是将 CSS 样式放在外部文件，然后再导入到当前 HTML 文档中。</p>
+<h2>行内样式（内联样式）</h2>
+<p>行内样式就是把 CSS 样式直接放在代码行内的标签中，一般都是放入标签的style属性中，由于行内样式直接插入标签中，故是最直接的一种方式，同时也是修改最不方便的样式。</p>
+<p>【示例】针对段落、<code>&lt;h2&gt;</code> 标签、<code>&lt;em&gt;</code> 标签、<code>&lt;strong&gt;</code>标签以及 <code>&lt;div&gt;</code> 标签，分别应用 CSS 行内样式。</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;行内样式&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p style=&quot;background-color: #999900&quot;&gt;行内元素，控制段落-1&lt;/p&gt;
+    &lt;h2 style=&quot;background-color: #FF6633&quot;&gt;行内元素，h2 标题元素&lt;/h2&gt;
+    &lt;p style=&quot;background-color: #999900&quot;&gt;行内元素，控制段落-2&lt;/p&gt;
+    &lt;strong style=&quot;font-size:30px;&quot;&gt;行内元素，strong 比 em 效果要强&lt;/strong&gt;
+    &lt;div style=&quot;background-color:#66CC99; color:#993300; height:30px; line-height:30px;&quot;&gt;行内元素，div 块级元素&lt;/div&gt;
+    &lt;em style=&quot;font-size:2em;&quot;&gt;行内元素，em 强调&lt;/em&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<blockquote>
+<p>在上面示例中，行内样式由 HTML 元素的 style 属性嵌入，即将 CSS 代码放入style=&quot;&quot;引号内即可，多个 CSS 属性值则通过分号;间隔。例如示例中的 <code>&lt;div&gt;</code> 标签：</p>
+<pre><code></code></pre>
+</blockquote>
+<div style="background-color:#66CC99; color:#993300; height:30px; line-height:30px;">行内元素，div 块级元素 </div>
+<pre><code>>段落 `&lt;p&gt;` 标签设置背景色为褐色（background-color: #999900），标题 `&lt;h2&gt;` 标签设置背景色为红色（background-color: #FF6633）。
+`&lt;strong&gt;` 标签设置字体为 30 像素（font-size:30px;），`&lt;div&gt;` 标签设置高度和行高为 30 像素以及进行背景色、颜色的设置（background-color:#66CC99; color:#993300; height:30px; line-height:30px;），`&lt;em&gt;` 标签设置字体大小为相对单位（font-size: 2em;）。
+两个段落 `&lt;p&gt;` 标签，虽内容不同，但使用一样的背景色设置，却添加两次 CSS 行内属性设置背景色 background-color: #999900。
+
+<p>缺点：</p>
+<ul>
+<li>每一个标签要设置样式都需要添加 style 属性。</li>
+<li>与过去网页制作者将 HTML 的标签和样式糅杂在一起的效果不同的是，现在是通过 CSS 编写行内样式，过去釆用的是 HTML 标签属性实现的样式效果。虽方式不同，但导致的后果是一样的：后期维护成本高，即当修改页面时需要逐个打开网站每个页面一一修改，根本看不到 CSS 所起到的作用。</li>
+<li>添加如此多的行内样式，页面体积大，门户网站若釆用这种方式编写，那将浪费服务器带宽和流量。</li>
+</ul>
+<p>网络上有些网页通过查看源文件可以看到这种编写方式，虽然一个网页只有一部分是如此做的， 但需要分情况：</p>
+<ul>
+<li>若网页制作者编写这样的行内样式，可以快速更改当前样式，不必考虑以前编写的样式冲突问题；</li>
+<li>网页中若存在这种情况则是后台编辑时，通过编辑器生成的样式，或后台未开发完整，需为编辑人员开发可选择样式的选项而非通过编辑器直接改变颜色、粗细、背景色、倾斜等效果。</li>
+</ul>
+<h2 id="内嵌样式"><a href="#内嵌样式" class="headerlink" title="内嵌样式"></a>内嵌样式</h2><p>内嵌样式通过将 CSS 写在网页源文件的头部，即在 <code>&amp;lt;head&amp;gt;</code> 和 <code>&amp;lt;head&amp;gt;</code> 之间，通过使用 HTML 标签中的 <code>&amp;lt;style&amp;gt;</code> 标签将其包围，其特点是该样式只能在此页使用，解决行内样式多次书写的弊端。</p>
+<p>【示例】为段落设置内嵌式样式书写方法，减少代码量。<br></code></pre></p>
+<p>&lt;!doctype html&gt;</p>
+<html>
+<head>
+<meta charset="utf-8">
+<title>内嵌式</title>
+<style type="text/css">
+p{
+    text-align: left;  /*文本左对齐*/
+    font-size: 18px;  /*字体大小 18 像素*/
+    line-height: 25px;  /*行高 25 像素*/
+    text-indent: 2em;  /*首行缩进2个文字大小空间*/
+    width: 500px;  /*段落宽度 500 像素*/
+    margin: 0 auto;  /*浏览器下居中*/
+    margin-bottom: 20px;  /*段落下边距 20 像素*/
+}
+</style>
+</head>
+<body>
+    <p>“百度”这一公司名称便来自宋词“众里寻他千百度”。（百度公司会议室名为青玉案，即是这首词的词牌）。而“熊掌”图标的想法来源于“猎人巡迹熊爪”的刺激，与李博士的“分析搜索技术”非常相似，从而构成百度的搜索概念，也最终成为了百度的图标形象。在这之后，由于在搜索引擎中，大都有动物形象来形象，如 SOHU 的狐，如 GOOGLE 的狗，而百度也便顺理成章称作了熊。百度熊也便成了百度公司的形象物。</p>
+    <p>在百度那次更换 LOGO 的计划中，百度给出的 3 个新 LOGO 设计方案在网民的投票下，全部被否决，更多的网民将选票投给了原有的熊掌标志。</p>
+    <p>此次更换 LOGO 的行动共进行了 3 轮投票，直到第 2 轮投票结束，新的笑脸 LOGO 都占据了绝对优势。但到最后一轮投票时，原有的熊掌标志却戏剧性地获得了最多的网民选票，从而把 3 个新 LOGO 方案彻底否决。</p>
+</body>
+</html>
+<pre><code>
+## 链接式
+
+<p>链接式通过 HTML 的 <code>&amp;lt;link&amp;gt;</code> 标签，将外部样式表文件链接到 HTML 文档中，这也是网络上网站应用最多的方式，同时也是最实用的方式。这种方法将 HTML 文档和 CSS 文件完全分离，实现结构层和表示层的彻底分离，增强网页结构的扩展性和 CSS 样式的可维护性。</p>
+<p>【示例】<br></code></pre></p>
+<p>&lt;!doctype html&gt;</p>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link href="lianjie.css" type="text/css" rel="stylesheet" />
+<link href="lianjie-2.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <p>我是被 lianjie-2.css 文件控制的，楼下的你呢？？</p>
+    <h3>楼上的，<span>lianjie.css</span> 文件给我穿的花衣服。</h3>
+</body>
+</html>
+<pre><code>
+>在上面示例中，通过 link 链接两个 CSS 文件，且都有效，这也是网站制作者将公共部分放入一个 CSS 文件，当前页面样式编写新的样式文件。
+
+<p>lianjie.css 文件代码：<br></code></pre></p>
+<p>h3{
+font-weight: normal;  /<em>取消标题默认加粗效果</em>/
+background-color: #66CC99;  /<em> 设置背景色 </em>/
+height: 50px;  /<em>设置标签的高度</em>/
+line-height:50px;  /<em> 设置标签的行高 </em>/
+}
+span{
+color: #FFOOOO;  /<em> 字体颜色 </em>/
+font-weight:bold;  /<em> 字体加粗 </em>/
+}</p>
+<pre><code>
+lianjie-2.css 文件代码：
+</code></pre>
+<p>p{
+color: #FF3333;  /<em>字体颜色设置</em>/
+font-weight: bold;  /<em> 字体加粗 </em>/
+border-bottom: 3px dashed #009933;  /<em> 设置下边框线 </em>/
+line-height: 30px;  /<em> 设置行高 </em>/
+}</p>
+<pre><code>
+>链接式样式使 CSS 代码和 HTML 代码完全分离，达到结构与样式的分开，使 HTML 代码专门构建页面结构，而美化工作由 CSS 完成。
+
+<blockquote>
+<p>链接式导入 CSS 样式的好处：</p>
+<ul>
+<li>CSS 文件可以放在不同的 HTML 文件中，使网站所有页面样式统一；</li>
+<li>再者将 CSS 代码放入一个 CSS 文件中便于管理、减少代码以及维护时间；</li>
+<li>当修改 CSS 文件时，所有应用此 CSS 文件的 HTML 文件都将更新，而不必从服务器上将所有的页面取回再修改完毕后上传。</li>
+</ul>
+</blockquote>
+<h2 id="导入样式"><a href="#导入样式" class="headerlink" title="导入样式"></a>导入样式</h2><p>导入样式使用 @import 命令导入外部样式表。导入样式有 6 种书写方式：</p>
+<blockquote>
+<ol>
+<li>@import daoru.css;</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>@import &amp;#039;daomxss&amp;#039;;</li>
+<li>@import &quot;daoru.css&quot;;</li>
+<li>@import url(daoru.css);</li>
+<li>@import url(&amp;#039;daoru.css&amp;#039;);</li>
+<li>@import url(&quot;daoru.css&quot;);</li>
+</ol>
+<p>【示例】导入样式表 lianjie.css 和 daoru.css 以及书写<code> &amp;lt;body&amp;gt;</code> 标签的背景色，注意导入样式表和 <code>&amp;lt;body&amp;gt;</code> 标签样式的前后不可颠倒。<br></code></pre></p>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+    @import url(lianjie.css);
+    @import url(daoru.css);
+    body { background-color: #e4e929; }
+</style>
+</head>
+<body>
+    <div>
+        <p>我是被 lianjie-2.css 文件控制的，楼下的你呢？？</p>
+        <h3>褛上的，<span>lianjie.css</span>文件给我穿的花衣服。</h3>
+    </div>
+</body>
+</html>
+<pre><code>
+>在上面示例中，必须是`@import url(&quot;lianjie-2.css&quot;); p&#123;text-indent: 3em;&#125;`，而不能是`p&#123;text-indent:3em;&#125; @import url(&quot;lianjie-2.css&quot;)`;，否则将导入效果无效。在 CSS 文件中也需要将 @import 放在前面，后面加入 CSS 样式，否则也是无效。
+>lianjie.css 文件代码，同上一个示例即链接式。
+>daoru.css 文件代码：
+>
+><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">&gt;@import url(&amp;quot;lianjie-2.css&amp;quot;);<br>&gt;p &#123; text-indent: 3em; &#125;<br></code></pre></td></tr></table></figure>
+</code></pre>
+<pre><code></code></pre><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2021/11/22/%E5%85%B6%E5%AE%83/%E5%85%B3%E4%BA%8E%20GIt%E3%80%81GitHub%E5%92%8CGitLab/">← Next 关于 GIt、GitHub和GitLab</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2021/11/20/%E5%8D%9A%E5%AE%A2/Markdown%E8%AF%AD%E6%B3%95/">Markdown语法 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="文章目录">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">WRXinYue</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>文章目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">行内样式（内联样式）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%B5%8C%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">内嵌样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">楼上的，lianjie.css 文件给我穿的花衣服。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%A0%B7%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">导入样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">褛上的，lianjie.css文件给我穿的花衣服。</span></a></li></ol></li></ol></div></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
