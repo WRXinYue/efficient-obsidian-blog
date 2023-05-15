@@ -99,8 +99,19 @@ if (!(Get-Command pnpm -ErrorAction SilentlyContinue)) {
 if (!(Get-Command hexo -ErrorAction SilentlyContinue)) {
     Write-Host "hexo-cli not found, installing..."
     pnpm install -g hexo-cli
+    pnpm install hexo-renderer-pug hexo-renderer-stylus --save
 } else {
     Write-Host "hexo-cli is already installed." -ForegroundColor Green
+}
+
+$packages = 'hexo-renderer-pug', 'hexo-renderer-stylus', 'hexo-server', 'hexo-browsersync'
+foreach ($package in $packages) {
+    if (!(pnpm list $package -g)) {
+        Write-Host "$package not found, installing..."
+        pnpm install $package --save
+    } else {
+        Write-Host "$package is already installed." -ForegroundColor Green
+    }
 }
 
 Write-Host "`n------------------------- Version Information -------------------------`n" -ForegroundColor Cyan
