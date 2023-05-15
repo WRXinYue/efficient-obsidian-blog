@@ -1,5 +1,7 @@
 # 使用管理员权限运行PowerShell
 
+# 下一步，Chocolatey替换下载源，pnpm替换下载源，读取配置文件进行设置
+
 $separator = @"
 ===================================================================
 "@
@@ -10,13 +12,6 @@ $logo = @"
 / /_/ / / /___    / /___    / ___ | / /|  /
 \____/  \____/   /_____/   /_/  |_|/_/ |_/
 "@
-
-$version = "1.0.0"
-$padding = "                                           "
-Write-Host $separator
-Write-Host $logo
-Write-Host ($padding + $version)
-Write-Host $separator
 
 # 检查管理员权限
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
@@ -46,6 +41,7 @@ if ($policy -eq "Restricted") {
     exit 1
 }
 
+
 Write-Host "`n------------------------- Installation tools -------------------------`n" -ForegroundColor Cyan
 
 Write-Host "Your confirmation for installation tools? (Y/N)" -ForegroundColor Yellow
@@ -55,6 +51,13 @@ if ($confirm -ne "Y" -and $confirm -ne "y") {
     exit
 }
 
+if (!(Get-Module -ListAvailable -Name powershell-yaml)) {
+    Write-Host "powershell-yaml not found, installing..."
+    Install-Module -Name powershell-yaml
+} else {
+    Write-Host "powershell-yaml is already installed." -ForegroundColor Green
+}
+
 if (!(Get-Command choco -ErrorAction SilentlyContinue)) {
     Write-Host "Chocolatey not found, installing..."
     Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -62,9 +65,19 @@ if (!(Get-Command choco -ErrorAction SilentlyContinue)) {
     Write-Host "Chocolatey is already installed." -ForegroundColor Green
 }
 
+try {
+    nvm | Out-Null
+    Write-Host "NVM is already installed." -ForegroundColor Green
+} catch {
+    Write-Host "NVM not found, installing..."
+    choco install nvm -y
+    Write-Output "NVM installed successfully."
+}
+
 if (!(Get-Command node -ErrorAction SilentlyContinue)) {
     Write-Host "Node.js not found, installing..."
-    choco install nodejs
+    nvm install stable
+    nvm use stable
 } else {
     Write-Host "Node.js is already installed." -ForegroundColor Green
 }
@@ -94,10 +107,25 @@ Write-Host "`n------------------------- Version Information --------------------
 
 Write-Host "Version information:"
 Write-Host "Chocolatey:" -NoNewline; choco --version
+Write-Host "nvm:" -NoNewline; choco --version
 Write-Host "Node.js:" -NoNewline; node --version
 Write-Host "Git:" -NoNewline; git --version
 Write-Host "pnpm:" -NoNewline; pnpm --version
 Write-Host "hexo-cli:" -NoNewline; hexo version
+
+$ConfigFilePath = Join-Path $PSScriptRoot "script" "config.yml"
+$ConfigContent = Get-Content $ConfigFilePath -Raw | ConvertFrom-Yaml
+$version = $ConfigContent.version
+$padding = "                                           "
+Write-Host $separator
+Write-Host $logo
+Write-Host ($padding + $version)
+Write-Host $separator
+
+
+Write-Host "`n------------------------- The warehouse installation -------------------------`n" -ForegroundColor Cyan
+
+
 
 Write-Host "`n------------------------- Compile operation -------------------------`n" -ForegroundColor Cyan
 

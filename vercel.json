@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/node",
+        "config": {
+          "installCommand": "pnpm install --store-dir ../.pnpm-store",
+          "buildCommand": "pnpm run build"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1",
+        "headers": { "cache-control": "s-maxage=0" }
+      }
+    ]
+  }
+  
