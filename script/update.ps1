@@ -33,7 +33,7 @@ if ($templateVersion -gt $localVersion) {
     $userInput = Read-Host @readhostParams
     if ($userInput -eq "Y") {
         # Ruled out. The git directory and the user may have modified files
-        Set-Location [用户的仓库的路径]
+        Set-Location [localVersion.url]
         Copy-Item "$tempDir\*" -Destination . -Recurse -Force -Exclude ".git", "其他需要排除的文件或目录"
     } else {
         Write-Host "用户取消更新。"
