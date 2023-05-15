@@ -1,6 +1,6 @@
 version: 1.0.2
 
 github:
-    # 填入你仓库的地址
-    # Fill in your warehouse address
+    # 个人仓库地址
+    # Individual warehouse address
     url: ''
