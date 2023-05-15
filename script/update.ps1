@@ -3,19 +3,32 @@ $tempDir = [System.IO.Path]::GetTempFileName()
 Remove-Item $tempDir # Remove the temporary file
 New-Item -ItemType Directory -Path $tempDir
 
-Set-Location $tempDir
-git clone 'https://github.com/WRXinYue/efficient-obsidian-blog.git'
+# Save the current directory
+$originalDir = Get-Location
 
-# Access to local and template repository configuration file content
-$ConfigFilePath = Join-Path $PSScriptRoot "script" "config.yml"
+Set-Location $tempDir
+
+# Access to local repository configuration file content
+$ConfigFilePath = Join-Path $PSScriptRoot "./config.yml"
 $localContent = Get-Content $ConfigFilePath -Raw | ConvertFrom-Yaml
-$templateConfigFilePath = Join-Path $tempDir "script" "config.yml"
+
+# GitHub API URL
+$url = "https://api.github.com/repos/WRXinYue/efficient-obsidian-blog/contents/script/config.yml"
+$response = Invoke-RestMethod -Uri $url -Method Get
+$fileContent = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($response.content))
+
+# Save the content to a temporary file
+$templateConfigFilePath = Join-Path $tempDir "./config.yml"
+Set-Content -Path $templateConfigFilePath -Value $fileContent
+
 $templateContent = Get-Content $templateConfigFilePath -Raw | ConvertFrom-Yaml
+$localVersion = $localContent.version
+$templateVersion = $templateContent.version
 
 # Compare the version number
-if ($templateContent.version -gt $localContent.version) {
+if ($templateVersion -gt $localVersion) {
     $readhostParams = @{
-        'Prompt' = "有新版本 ($templateContent.version) 可用，是否进行更新？ (Y/N)"
+        'Prompt' = "有新版本 ($templateVersion) 可用，(本地版本：$localVersion)是否进行更新？ (Y/N)"
     }
     $userInput = Read-Host @readhostParams
     if ($userInput -eq "Y") {
@@ -26,8 +39,30 @@ if ($templateContent.version -gt $localContent.version) {
         Write-Host "用户取消更新。"
     }
 } else {
-    Write-Host "你已经在使用最新版本 ($localContent.version)。"
+    Write-Host "你已经在使用最新版本 ($templateVersion)。" -ForegroundColor Green
+}
+
+# Retry loop for git clone
+$maxAttempts = 10
+$attempt = 0
+$success = $false
+
+while (($attempt -lt $maxAttempts) -and (!$success)) {
+  try {
+    git clone 'https://api.github.com/repos/WRXinYue/efficient-obsidian-blog.git'
+    $success = $true
+  } catch {
+    $attempt++
+    Write-Host "下载失败，正在尝试第 $attempt 次..."
+    Start-Sleep -Seconds 5
+  }
+}
+
+if (!$success) {
+  Write-Host "下载失败，已达到最大尝试次数。"
+  exit 1
 }
 
 # 删除临时目录
-Remove-Item $tempDir -Recurse
+Set-Location $originalDir
+Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue
