@@ -1,15 +1,33 @@
-# 在脚本中创建一个临时的目录，用于存放从模板仓库拉取的更新
+# Create a temporary directory
 $tempDir = [System.IO.Path]::GetTempFileName()
-Remove-Item $tempDir # Remove the temporary file, because we want a directory
+Remove-Item $tempDir # Remove the temporary file
 New-Item -ItemType Directory -Path $tempDir
 
-# 在临时目录中，使用git clone命令拉取模板仓库的最新代码
 Set-Location $tempDir
-git clone [你的模板仓库的URL]
+git clone 'https://github.com/WRXinYue/efficient-obsidian-blog.git'
 
-# 将临时目录中的更新复制到用户的仓库，注意需要排除.git目录和用户可能已经修改过的文件
-Set-Location [用户的仓库的路径]
-Copy-Item "$tempDir\*" -Destination . -Recurse -Force -Exclude ".git", "其他需要排除的文件或目录"
+# Access to local and template repository configuration file content
+$ConfigFilePath = Join-Path $PSScriptRoot "script" "config.yml"
+$localContent = Get-Content $ConfigFilePath -Raw | ConvertFrom-Yaml
+$templateConfigFilePath = Join-Path $tempDir "script" "config.yml"
+$templateContent = Get-Content $templateConfigFilePath -Raw | ConvertFrom-Yaml
+
+# Compare the version number
+if ($templateContent.version -gt $localContent.version) {
+    $readhostParams = @{
+        'Prompt' = "有新版本 ($templateContent.version) 可用，是否进行更新？ (Y/N)"
+    }
+    $userInput = Read-Host @readhostParams
+    if ($userInput -eq "Y") {
+        # Ruled out. The git directory and the user may have modified files
+        Set-Location [用户的仓库的路径]
+        Copy-Item "$tempDir\*" -Destination . -Recurse -Force -Exclude ".git", "其他需要排除的文件或目录"
+    } else {
+        Write-Host "用户取消更新。"
+    }
+} else {
+    Write-Host "你已经在使用最新版本 ($localContent.version)。"
+}
 
 # 删除临时目录
 Remove-Item $tempDir -Recurse
