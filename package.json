@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "npx hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "prepare": "husky install",
-    "vercel-build": "pnpm install && npx hexo generate"
+    "prepare": "husky install"
   },
   "hexo": {
     "version": "6.3.0"

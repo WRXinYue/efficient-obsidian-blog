@@ -3,11 +3,7 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "source/**",
-        "excludeFiles": "node_modules/**"
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -15,8 +11,5 @@
       "src": "/(.*)",
       "dest": "/public/$1"
     }
-  ],
-  "scripts": {
-    "vercel-build": "pnpm install && npx hexo generate"
-  }
+  ]
 }
