@@ -6,9 +6,7 @@
       "use": "@vercel/node",
       "config": {
         "includeFiles": "source/**",
-        "excludeFiles": "node_modules/**",
-        "installCommand": "pnpm install",
-        "buildCommand": "npx hexo generate"
+        "excludeFiles": "node_modules/**"
       }
     }
   ],
@@ -17,5 +15,8 @@
       "src": "/(.*)",
       "dest": "/public/$1"
     }
-  ]
+  ],
+  "scripts": {
+    "vercel-build": "pnpm install && npx hexo generate"
+  }
 }
