@@ -32,11 +32,10 @@
 3. **Templater**（文件元数据模板）：自动在新的文章中插入预设的元数据模板。
 4. **Update time on edit**（自动更新时间）：在编辑文章时自动更新元数据中的时间戳。
 5. **Husky**: 实现了自动化的Husky配置，用于在Git提交时运行一些检查和任务。
-：Hexo
-1. `hexo-renderer-pug`：Hexo 的 Pug 模板引擎渲染器。Pug 是一种高效、健壮、功能丰富的模板引擎，可以用于生成 HTML。
-2. `hexo-renderer-stylus`Hexo 的 Stylus 渲染器。Stylus 是一种强大的 CSS 预处理器，它可以让你使用更简洁、更灵活的语法来编写 CSS。
-3. `hexo-server`：Hexo 的官方服务器插件。这个插件可以让你在本地轻松地预览你的 Hexo 网站。
-4. `hexo-browsersync`：Hexo 的 BrowserSync 插件。BrowserSync 是一个能够让你在多个设备上实时预览和测试你的网站的工具。
+6. `hexo-renderer-pug`：Hexo 的 Pug 模板引擎渲染器。Pug 是一种高效、健壮、功能丰富的模板引擎，可以用于生成 HTML。
+7. `hexo-renderer-stylus`Hexo 的 Stylus 渲染器。Stylus 是一种强大的 CSS 预处理器，它可以让你使用更简洁、更灵活的语法来编写 CSS。
+8. `hexo-server`：Hexo 的官方服务器插件。这个插件可以让你在本地轻松地预览你的 Hexo 网站。
+9. `hexo-browsersync`：Hexo 的 BrowserSync 插件。BrowserSync 是一个能够让你在多个设备上实时预览和测试你的网站的工具。
 
 <br>
 <h2 align="center"><strong>📚 如何使用</strong></h2>
