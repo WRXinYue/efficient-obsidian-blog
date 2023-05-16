@@ -60,7 +60,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 **打开 Obsidian**：安装完成后，导航到 [个人仓库]\source\_posts 目录并打开 Obsidian。现在，你已经准备好在 Obsidian 中开始创建博客文章了！
 
-如果配置或使用 Obsidian 插件方面遇到任何问题，可以参考详细的 [Obsidian] 插件使用文档(https://github.com/WRXinYue/efficient-obsidian-blog/blob/master/doc/OBSIDIAN.zh-CN.md)
+如果配置或使用 Obsidian 插件方面遇到任何问题，可以参考详细的 [Obsidian插件使用文档](https://github.com/WRXinYue/efficient-obsidian-blog/blob/master/doc/OBSIDIAN.zh-CN.md)
 
 <br>
 <h2 align="center"><strong>🔧 配置指南</strong></h2>
