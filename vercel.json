@@ -1,21 +1,21 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/node",
-        "config": {
-          "installCommand": "pnpm install",
-          "buildCommand": "pnpm run build"
-        }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": "source/**",
+        "excludeFiles": "node_modules/**",
+        "installCommand": "pnpm install",
+        "buildCommand": "npx hexo generate"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/public/**",
-        "headers": { "cache-control": "s-maxage=0" }
-      }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
+}
