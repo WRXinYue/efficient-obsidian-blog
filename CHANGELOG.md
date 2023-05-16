@@ -7,10 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2023-03-16
+
+### Added
+- The official release
+- Add support for vercel deployment
+- Add the obsidian help documentation
+
+### Removed
+- Delete some useless file
+
 ## [1.0.0] - 2023-03-14
 
 ### Added
 
-- v1.0.0 The basic function to submit
-- v1.0.1 Add automatic script installation function
-- v1.0.2 Add the update checking
+- The basic function to submit
+- Add automatic script installation function
+- Add the update checking
