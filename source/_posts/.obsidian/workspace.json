@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Scripts/校园分享会.md",
+                "file": "hello-world.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Scripts/校园分享会.md",
+                "file": "hello-world.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Scripts/校园分享会.md",
+                "file": "hello-world.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Scripts/校园分享会.md"
+                "file": "hello-world.md"
               }
             }
           }
@@ -147,17 +147,18 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
       "templater-obsidian:Templater": false
     }
   },
-  "active": "4d67a095df072378",
+  "active": "c73c0d479cd6c833",
   "lastOpenFiles": [
+    "Untitled",
     "server/快速翻墙命令.md",
     "Scripts/校园分享会.md",
     "server/防火墙.md",
@@ -182,7 +183,6 @@
     "未命名.md",
     "WebFrontend/JavaScript/js解构赋值.md",
     "游戏开发/像素教程.md",
-    "WebFrontend/UI/CSS3笔记.md",
-    "WebBackend/Java/OkHttp3.md"
+    "WebFrontend/UI/CSS3笔记.md"
   ]
 }

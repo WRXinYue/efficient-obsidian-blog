@@ -56,7 +56,9 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 After setting the execution policy, try running the `./install.ps` script again.
 
-**Open Obsidian**: Once the installation is complete, navigate to the `[your-repository]\source\_posts` directory and open Obsidian. Now, you're all set to start creating your blog posts in Obsidian!
+**Open Obsidian**: After the installation is complete, navigate to the `[your-repository]\source\_posts` directory and open Obsidian. Now, you are ready to start creating blog articles in Obsidian!
+
+If you encounter any issues with configuring or using Obsidian plugins, you can refer to the detailed [Obsidian Plugin Usage Documentation](https://github.com/WRXinYue/efficient-obsidian-blog/blob/master/doc/OBSIDIAN.md) for assistance."
 
 <br><h2 align="center"><strong>🔧 Configuration Guide</strong></h2>
 
