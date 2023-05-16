@@ -52,7 +52,7 @@ This project provides a blog template that integrates Obsidian with  Hexo, enabl
 Please note, if you're running the script for the first time, you may need to change the execution policy. You can do this by running the following command in PowerShell:
 
 ```bash
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 After setting the execution policy, try running the `./install.ps` script again.
 

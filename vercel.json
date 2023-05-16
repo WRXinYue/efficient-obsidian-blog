@@ -6,7 +6,7 @@
         "use": "@vercel/node",
         "config": {
           "installCommand": "pnpm install --store-dir ../.pnpm-store",
-          "buildCommand": "pnpm run build"
+          "buildCommand": "npm install hexo-server hexo-browsersync hexo-renderer-pug --save"
         }
       }
     ],
