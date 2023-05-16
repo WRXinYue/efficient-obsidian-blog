@@ -8,7 +8,7 @@
         "includeFiles": "source/**",
         "excludeFiles": "node_modules/**",
         "installCommand": "pnpm install",
-        "buildCommand": "npx hexo generate"
+        "buildCommand": "npm run build"
       }
     }
   ],
