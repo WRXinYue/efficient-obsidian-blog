@@ -124,6 +124,8 @@ Write-Host "Git:" -NoNewline; git --version
 Write-Host "pnpm:" -NoNewline; pnpm --version
 Write-Host "hexo-cli:" -NoNewline; hexo version
 
+# pnpm config set registry https://registry.npmmirror.com
+
 $ConfigFilePath = Join-Path $PSScriptRoot "script" "config.yml"
 $ConfigContent = Get-Content $ConfigFilePath -Raw | ConvertFrom-Yaml
 $version = $ConfigContent.version
