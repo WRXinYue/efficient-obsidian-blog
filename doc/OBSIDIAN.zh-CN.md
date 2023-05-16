@@ -8,7 +8,7 @@ PicGo是一款便捷的图床工具，配合Image auto upload Plugin插件，Obs
 
 插件：Obsidian Git
 
-Obsidian Git插件提供了直接在Obsidian进行Git上传的功能，便于文件版本的保存和管理。可以根据需要设置自动Git推送，但为了更好地控制版本，推荐进行手动推送。访问Git命令只需按下Ctrl + P打开Obsidian的命令面板，然后输入"git"即可查看所有可用的Git命令。提交代码一般只需执行Obsidian Git:Commit all changes和Obsidian Git:Push。
+Obsidian Git插件提供了直接在Obsidian进行Git上传的功能，便于文件版本的保存和管理。可以根据需要设置自动Git推送，但为了更好地控制版本，推荐进行手动推送。访问Git命令只需按下Ctrl + P打开Obsidian的命令面板，然后输入"git"即可查看所有可用的Git命令。提交代码一般只需执行`Obsidian Git:Commit all changes`和`Obsidian Git:Push`
 
 ### 文件元数据模板
 
