@@ -7,8 +7,8 @@
       "config": {
         "includeFiles": "source/**",
         "excludeFiles": "node_modules/**",
-        "installCommand": "npm install",
-        "buildCommand": "npm run build"
+        "installCommand": "pnpm install",
+        "buildCommand": "hexo generate"
       }
     }
   ],
