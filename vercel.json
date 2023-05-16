@@ -7,7 +7,7 @@
       "config": {
         "includeFiles": "source/**",
         "excludeFiles": "node_modules/**",
-        "installCommand": "pnpm install",
+        "installCommand": "npm install",
         "buildCommand": "npm run build"
       }
     }
