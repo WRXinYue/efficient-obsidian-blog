@@ -5,7 +5,7 @@ This project provides a blog template that integrates Obsidian with  Hexo, enabl
 ***
 <br>
 <p align='center'>
-<a href="">Live Demo</a>
+<a href="https://efficient-obsidian-blog.vercel.app/">Live Demo</a>
 </p>
 
 <br>
