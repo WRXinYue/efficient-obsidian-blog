@@ -10,7 +10,7 @@ This project provides a blog template that integrates Obsidian with  Hexo, enabl
 
 <br>
 <p align='center'>
-<b>English</b> | <a href="https://github.com/WRXinYue/efficient-obsidian-blog/blob/main/README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="https://github.com/WRXinYue/efficient-obsidian-blog/blob/master/README.zh-CN.md">简体中文</a>
 </p>
 
 <br>

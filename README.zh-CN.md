@@ -10,7 +10,7 @@
 
 <br>
 <p align='center'>
-<a href="https://github.com/WRXinYue/efficient-obsidian-blog/blob/main/README.md">English</a> | <b>简体中文</b>
+<a href="https://github.com/WRXinYue/efficient-obsidian-blog/blob/master/README.md">English</a> | <b>简体中文</b>
 </p>
 
 <br>
