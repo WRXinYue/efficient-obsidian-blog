@@ -51,6 +51,10 @@ if ($confirm -ne "Y" -and $confirm -ne "y") {
     exit
 }
 
+pnpm setup
+. $profile
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+
 if (!(Get-Module -ListAvailable -Name powershell-yaml)) {
     Write-Host "powershell-yaml not found, installing..."
     Install-Module -Name powershell-yaml
