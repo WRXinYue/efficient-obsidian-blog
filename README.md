@@ -75,3 +75,5 @@ When we release new versions, you can update your template by running  our provi
 <br><h2 align="center"><strong>📮  Feedback and Suggestions</strong></h2>
 
 We hope you enjoy using our template. If you encounter any problems  during use, or have any suggestions, we welcome your feedback. Also, if  you believe there are any areas for improvement in this project, please  feel free to let us know.
+
+![Visitor Count](https://profile-counter.glitch.me/2023613/count.svg)
